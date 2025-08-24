@@ -416,6 +416,23 @@
             margin-bottom: 20px;
         }
         
+        .person-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 15px;
+            display: block;
+            border: 3px solid rgba(214, 51, 132, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .person-avatar:hover {
+            transform: scale(1.05);
+            border-color: #d63384;
+            box-shadow: 0 8px 25px rgba(214, 51, 132, 0.3);
+        }
+        
         .person-name {
             font-family: 'Playfair Display', serif;
             font-size: 1.4em;
@@ -1079,6 +1096,7 @@
                 <div class="family-side">
                     <h3 class="family-title">♂ Nhà Trai</h3>
                     <div class="person-info">
+                        <img src="dd.png" alt="Trần Viết Đông" class="person-avatar">
                         <div class="person-name">Trần Viết Đông</div>
                     </div>
                     <div class="person-info">
@@ -1094,6 +1112,7 @@
                 <div class="family-side">
                     <h3 class="family-title">♀ Nhà Gái</h3>
                     <div class="person-info">
+                        <img src="bb.png" alt="Võ Nguyễn Hoàng Uyên" class="person-avatar">
                         <div class="person-name">Võ Nguyễn Hoàng Uyên</div>
                     </div>
                     <div class="person-info">
