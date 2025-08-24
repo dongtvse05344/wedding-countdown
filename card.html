@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizontal Wedding Boarding Pass</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #f4f1f0 0%, #e8e2e1 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .boarding-pass {
+            background: white;
+            width: 900px;
+            height: 400px;
+            max-width: 95vw;
+            max-height: 90vh;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+            display: flex;
+        }
+
+        .main-section {
+            flex: 3;
+            background: linear-gradient(135deg, #e8d5d5 0%, #f0e6e6 100%);
+            padding: 40px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .top-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .left-content {
+            flex: 1;
+        }
+
+        .plane-icon {
+            font-size: 36px;
+            color: #4a5568;
+            margin-bottom: 20px;
+            transform: rotate(-5deg);
+        }
+
+        .banner {
+            background: #4a5568;
+            color: white;
+            padding: 8px 20px;
+            margin-bottom: 25px;
+            transform: rotate(-1deg);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            display: inline-block;
+            border-radius: 3px;
+        }
+
+        .event-title {
+            font-size: 12px;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .couple-names {
+            font-family: 'Great Vibes', cursive;
+            font-size: 48px;
+            color: #4a5568;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .couple-last-names {
+            font-family: 'Playfair Display', serif;
+            font-size: 16px;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+        }
+
+        .heart {
+            color: #f8b4b4;
+            font-size: 20px;
+            margin: 0 10px;
+        }
+
+        .wedding-details {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .detail-box {
+            background: rgba(74, 85, 104, 0.08);
+            padding: 20px 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .detail-label {
+            font-size: 10px;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .detail-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 14px;
+            color: #4a5568;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .barcode-section {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .barcode {
+            font-family: 'Courier New', monospace;
+            font-size: 18px;
+            color: #4a5568;
+            letter-spacing: 1px;
+            opacity: 0.7;
+        }
+
+        .stub {
+            flex: 1;
+            background: #4a5568;
+            color: white;
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .stub::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 20px;
+            bottom: 20px;
+            width: 3px;
+            background: 
+                radial-gradient(circle, #e5e7eb 2px, transparent 2px);
+            background-size: 6px 20px;
+            background-repeat: repeat-y;
+        }
+
+        .save-date {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        .couple-initials {
+            font-family: 'Great Vibes', cursive;
+            font-size: 32px;
+            margin-bottom: 25px;
+        }
+
+        .wedding-date {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+        }
+
+        .wedding-month {
+            font-size: 24px;
+            font-weight: 300;
+            margin-bottom: 8px;
+            letter-spacing: 2px;
+        }
+
+        .wedding-day {
+            font-size: 64px;
+            font-weight: 300;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .wedding-year {
+            font-size: 18px;
+            font-weight: 300;
+            opacity: 0.9;
+            letter-spacing: 1px;
+        }
+
+        .rsvp-section {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            font-size: 10px;
+            line-height: 1.4;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .boarding-pass {
+                width: 100%;
+                height: auto;
+                flex-direction: column;
+            }
+            
+            .main-section {
+                flex: none;
+                padding: 30px 25px;
+            }
+            
+            .wedding-details {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            .stub {
+                flex: none;
+                padding: 25px;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+            .stub::before {
+                left: 20px;
+                right: 20px;
+                top: 0;
+                bottom: auto;
+                width: auto;
+                height: 3px;
+                background: 
+                    radial-gradient(circle, #e5e7eb 2px, transparent 2px);
+                background-size: 20px 6px;
+                background-repeat: repeat-x;
+            }
+            
+            .couple-names {
+                font-size: 36px;
+            }
+            
+            .wedding-day {
+                font-size: 48px;
+            }
+        }
+
+        .edit-note {
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            color: #888;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 8px 16px;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="boarding-pass">
+        <div class="main-section">
+            <div class="top-section">
+                <div class="left-content">
+                    <div class="plane-icon">✈</div>
+                    <div class="banner">BOARDING PASS</div>
+                    
+                    <div class="event-title">To the wedding of</div>
+                    
+                    <div class="couple-names">
+                        Sarah <span class="heart">♥</span> Michael
+                    </div>
+                    
+                    <div class="couple-last-names">JOHNSON &amp; SMITH</div>
+                </div>
+            </div>
+            
+            <div class="wedding-details">
+                <div class="detail-box">
+                    <div class="detail-label">Date</div>
+                    <div class="detail-value">JUNE 15</div>
+                </div>
+                <div class="detail-box">
+                    <div class="detail-label">Destination</div>
+                    <div class="detail-value">GARDEN PAVILION<br>SPRINGFIELD</div>
+                </div>
+                <div class="detail-box">
+                    <div class="detail-label">Boarding</div>
+                    <div class="detail-value">3:30 PM</div>
+                </div>
+                <div class="detail-box">
+                    <div class="detail-label">Departure</div>
+                    <div class="detail-value">4:00 PM</div>
+                </div>
+            </div>
+            
+            <div class="barcode-section">
+                <div class="barcode">||||| ||| |||| ||||| || |||||| ||| |||| ||||| ||</div>
+            </div>
+        </div>
+        
+        <div class="stub">
+            <div class="save-date">With Love</div>
+            <div class="couple-initials">S ♥ M</div>
+            <div class="wedding-date">
+                <div class="wedding-month">JUNE</div>
+                <div class="wedding-day">15</div>
+                <div class="wedding-year">2024</div>
+            </div>
+            
+            <div class="rsvp-section">
+                RSVP by May 1st<br>
+                sarah.michael@email.com
+            </div>
+        </div>
+
+        <div class="edit-note">
+            Click any text to customize your horizontal boarding pass
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const editableSelectors = [
+                '.couple-names', '.couple-last-names', '.couple-initials',
+                '.detail-value', '.wedding-month', '.wedding-day', '.wedding-year',
+                '.event-title', '.save-date', '.rsvp-section'
+            ];
+            
+            editableSelectors.forEach(selector => {
+                const elements = document.querySelectorAll(selector);
+                elements.forEach(element => {
+                    element.addEventListener('click', function() {
+                        if (!this.isContentEditable) {
+                            this.contentEditable = true;
+                            this.style.outline = '2px dashed #f8b4b4';
+                            this.focus();
+                            
+                            const range = document.createRange();
+                            range.selectNodeContents(this);
+                            const selection = window.getSelection();
+                            selection.removeAllRanges();
+                            selection.addRange(range);
+                        }
+                    });
+                    
+                    element.addEventListener('blur', function() {
+                        this.contentEditable = false;
+                        this.style.outline = 'none';
+                    });
+                    
+                    element.addEventListener('keydown', function(e) {
+                        if (e.key === 'Enter' && !e.shiftKey) {
+                            e.preventDefault();
+                            this.blur();
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1443 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thiệp Cưới - Đông & Uyên</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&family=Great+Vibes&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #dee2e6 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 20s ease infinite;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .invitation-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(15px);
+            border-radius: 0;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+            margin-top: 0;
+            margin-bottom: 0;
+            overflow: hidden;
+            position: relative;
+            animation: slideInFromTop 1.8s ease-out;
+            min-height: 100vh;
+        }
+        
+        @keyframes slideInFromTop {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.95);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            background: linear-gradient(45deg, rgba(255, 182, 193, 0.1), rgba(255, 218, 185, 0.1));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+        
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="hearts" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><text x="20" y="30" font-size="20" fill="rgba(255,182,193,0.1)">♥</text><text x="70" y="70" font-size="15" fill="rgba(255,182,193,0.08)">♥</text></pattern></defs><rect width="100%" height="100%" fill="url(%23hearts)"/></svg>');
+            opacity: 0.3;
+            animation: float 20s ease-in-out infinite;
+        }
+        
+        .date-badge {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: none;
+            color: #8B4513;
+            padding: 0;
+            border-radius: 0;
+            font-weight: 300;
+            font-size: 0.9em;
+            border: none;
+            text-align: center;
+            line-height: 1.2;
+        }
+        
+        .date-large {
+            font-size: 2.2em;
+            font-weight: 700;
+            display: block;
+            color: #A0522D;
+        }
+        
+        .month-year {
+            font-size: 0.8em;
+            font-weight: 400;
+            display: block;
+            margin-top: 2px;
+            color: #8B4513;
+            letter-spacing: 1px;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .main-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4em;
+            color: #2c3e50;
+            margin: 20px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+            animation: titleGlow 4s ease-in-out infinite alternate;
+        }
+        
+        @keyframes titleGlow {
+            0% {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+                transform: scale(1);
+            }
+            100% {
+                text-shadow: 0 0 30px rgba(214, 51, 132, 0.4), 2px 2px 4px rgba(0, 0, 0, 0.1);
+                transform: scale(1.02);
+            }
+        }
+        
+        .couple-names {
+            font-family: 'Playfair Display', serif;
+            font-size: 3em;
+            color: #d63384;
+            margin: 30px 0;
+            font-weight: 700;
+            position: relative;
+            animation: fadeInUp 2s ease-out 1s both;
+        }
+        
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .wedding-date {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.3em;
+            color: #6c757d;
+            margin: 20px 0;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        
+        .countdown-section {
+            margin: 40px 0;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .countdown-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2em;
+            color: #d63384;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .countdown-timer {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+        
+        .countdown-item {
+            background: linear-gradient(135deg, #d63384, #e74c3c);
+            color: white;
+            padding: 20px 10px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(214, 51, 132, 0.3);
+            transition: all 0.3s ease;
+            animation: countdownPulse 2s ease-in-out infinite;
+        }
+        
+        .countdown-item:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(214, 51, 132, 0.4);
+        }
+        
+        @keyframes countdownPulse {
+            0%, 100% { box-shadow: 0 10px 25px rgba(214, 51, 132, 0.3); }
+            50% { box-shadow: 0 15px 35px rgba(214, 51, 132, 0.5); }
+        }
+        
+        .countdown-number {
+            font-size: 2.5em;
+            font-weight: 700;
+            display: block;
+            animation: numberFlip 1s ease-in-out;
+        }
+        
+        .countdown-label {
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+        
+        @keyframes numberFlip {
+            0% { transform: rotateY(90deg); }
+            100% { transform: rotateY(0deg); }
+        }
+        
+        .calendar-section {
+            margin: 30px 0 0 0;
+            text-align: center;
+        }
+        
+        .calendar-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5em;
+            color: #8B4513;
+            margin-bottom: 20px;
+        }
+        
+        .calendar {
+            display: inline-block;
+            background: none;
+            border-radius: 0;
+            box-shadow: none;
+            overflow: visible;
+            border: none;
+            max-width: 100%;
+            width: 100%;
+        }
+        
+        .calendar-header {
+            background: none;
+            color: #d63384;
+            padding: 10px 0;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5em;
+            font-weight: 400;
+            text-transform: none;
+            letter-spacing: normal;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        
+        .calendar-body {
+            padding: 0;
+            background: none;
+        }
+        
+        .weekdays {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 4px;
+            margin-bottom: 8px;
+            max-width: 400px;
+            margin: 0 auto 8px auto;
+        }
+        
+        .weekday {
+            text-align: center;
+            font-weight: 500;
+            color: #6c757d;
+            font-size: 0.75em;
+            padding: 4px 2px;
+            background: none;
+            border-radius: 0;
+        }
+        
+        .calendar-days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 4px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        .calendar-day {
+            text-align: center;
+            padding: 6px 2px;
+            font-size: 0.85em;
+            color: #6c757d;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            min-height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .calendar-day.current-month {
+            color: #495057;
+            background: rgba(255, 255, 255, 0.6);
+        }
+        
+        .calendar-day.current-month:hover {
+            background: rgba(214, 51, 132, 0.1);
+            transform: scale(1.05);
+        }
+        
+        .calendar-day.wedding-day {
+            background: linear-gradient(135deg, #d63384, #e74c3c);
+            color: white;
+            font-weight: 700;
+            font-size: 0.9em;
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(214, 51, 132, 0.3);
+            border: none;
+            animation: weddingGlow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes weddingGlow {
+            0% { box-shadow: 0 4px 15px rgba(214, 51, 132, 0.3); }
+            100% { box-shadow: 0 6px 25px rgba(214, 51, 132, 0.5); }
+        }
+        
+        .calendar-day.other-month {
+            color: #adb5bd;
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .content {
+            padding: 40px;
+            position: relative;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2em;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: 700;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, #d63384, #e74c3c);
+            border-radius: 2px;
+        }
+        
+        .family-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 50px 0;
+        }
+        
+        .family-side {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(255, 182, 193, 0.2);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .family-side::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, #d63384, #e74c3c);
+        }
+        
+        .family-side:hover {
+            transform: translateY(-8px) rotateY(3deg);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            background: rgba(255, 255, 255, 0.95);
+        }
+        
+        .family-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5em;
+            color: #d63384;
+            text-align: center;
+            margin-bottom: 25px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .person-info {
+            margin-bottom: 20px;
+        }
+        
+        .person-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4em;
+            color: #2c3e50;
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+        
+        .person-detail {
+            color: #5a6c7d;
+            font-size: 1em;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+        
+        .address {
+            color: #6c757d;
+            font-size: 0.95em;
+            line-height: 1.5;
+            text-align: center;
+            font-style: italic;
+            margin-top: 15px;
+            padding: 15px;
+            background: rgba(255, 182, 193, 0.1);
+            border-radius: 10px;
+        }
+        
+        .map-link {
+            color: #d63384;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 15px;
+            background: rgba(214, 51, 132, 0.1);
+            margin-top: 8px;
+            font-size: 0.9em;
+        }
+        
+        .map-link:hover {
+            color: white;
+            background: #d63384;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(214, 51, 132, 0.3);
+        }
+        
+        .map-link::before {
+            content: "🗺️ ";
+            margin-right: 4px;
+        }
+        
+        .ceremony-section {
+            margin: 60px 0;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(248, 249, 250, 0.9));
+            border-radius: 25px;
+            border: 1px solid rgba(214, 51, 132, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+        }
+        
+        .ceremony-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2em;
+            color: #d63384;
+            text-align: center;
+            margin-bottom: 35px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+        }
+        
+        .ceremony-details {
+            display: grid;
+            gap: 25px;
+        }
+        
+        .ceremony-item {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+            border-left: 5px solid #d63384;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ceremony-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+            transition: left 0.8s ease;
+        }
+        
+        .ceremony-item:hover::before {
+            left: 100%;
+        }
+        
+        .ceremony-item:hover {
+            transform: translateX(15px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(214, 51, 132, 0.2);
+            background: rgba(255, 255, 255, 1);
+            border-left-width: 8px;
+        }
+        
+        .ceremony-item h4 {
+            font-family: 'Playfair Display', serif;
+            color: #2c3e50;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .ceremony-info {
+            color: #5a6c7d;
+            line-height: 1.8;
+        }
+        
+        .time-info {
+            color: #d63384;
+            font-weight: 600;
+            font-size: 1.15em;
+            margin-bottom: 8px;
+        }
+        
+        .location-info {
+            color: #495057;
+            font-weight: 500;
+            margin-top: 10px;
+        }
+        
+        .ceremony-map-link {
+            color: #d63384;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9em;
+            padding: 4px 8px;
+            border-radius: 12px;
+            background: rgba(214, 51, 132, 0.1);
+            margin-left: 8px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .ceremony-map-link:hover {
+            color: white;
+            background: #d63384;
+            transform: translateY(-1px);
+            box-shadow: 0 3px 10px rgba(214, 51, 132, 0.3);
+        }
+        
+        .ceremony-map-link::before {
+            content: "🗺️";
+            margin-right: 3px;
+        }
+        
+        .sticky-countdown {
+            position: fixed;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            padding: 8px 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(214, 51, 132, 0.2);
+            z-index: 1000;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .sticky-countdown.show {
+            top: 20px;
+        }
+        
+        .sticky-countdown-content {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .sticky-countdown-text {
+            font-size: 0.85em;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        
+        .sticky-countdown-number {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: #d63384;
+            min-width: 30px;
+            text-align: center;
+        }
+        
+        .sticky-countdown-label {
+            font-size: 0.75em;
+            color: #6c757d;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .couple-photo-section {
+            text-align: center;
+            margin: 60px 0;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(255, 182, 193, 0.05), rgba(255, 218, 185, 0.05));
+            border-radius: 25px;
+        }
+        
+        .couple-photo {
+            width: 300px;
+            height: 400px;
+            margin: 0 auto;
+            border-radius: 20px;
+            object-fit: cover;
+            border: 3px solid rgba(214, 51, 132, 0.3);
+            transition: all 0.3s ease;
+            animation: photoGlow 4s ease-in-out infinite alternate;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        @keyframes photoGlow {
+            0% { box-shadow: 0 10px 30px rgba(214, 51, 132, 0.1); }
+            100% { box-shadow: 0 20px 50px rgba(214, 51, 132, 0.2); }
+        }
+        
+        .couple-photo:hover {
+            transform: scale(1.05);
+            border-color: #d63384;
+            box-shadow: 0 20px 50px rgba(214, 51, 132, 0.2);
+        }
+        
+        .love-quote {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.8em;
+            color: #d63384;
+            text-align: center;
+            margin: 40px 0;
+            font-style: italic;
+            animation: fadeIn 3s ease-out 2s both;
+        }
+        
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 50px 40px;
+            background: linear-gradient(135deg, #d63384, #e74c3c);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="90" cy="20" r="1.5" fill="rgba(255,255,255,0.08)"/><circle cx="50" cy="90" r="1.2" fill="rgba(255,255,255,0.1)"/></svg>');
+            animation: float 15s ease-in-out infinite;
+        }
+        
+        .footer-message {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .footer-content {
+            font-size: 1.1em;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .petal {
+            position: fixed;
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(45deg, #ffb6c1, #ffc0cb);
+            border-radius: 50% 10% 50% 10%;
+            animation: fall linear infinite;
+            z-index: 0;
+        }
+        
+        @keyframes fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .floating-heart {
+            position: fixed;
+            font-size: 18px;
+            color: rgba(214, 51, 132, 0.6);
+            animation: floatHeart 10s ease-in-out infinite;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        .leaf {
+            position: fixed;
+            width: 12px;
+            height: 12px;
+            background: linear-gradient(45deg, #228B22, #32CD32, #90EE90);
+            border-radius: 0% 100% 0% 100%;
+            animation: leafFall linear infinite;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        .leaf::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 1px;
+            height: 8px;
+            background: #8B4513;
+            transform: translate(-50%, -50%) rotate(45deg);
+            z-index: -1;
+        }
+        
+        @keyframes floatHeart {
+            0% {
+                transform: translateY(100vh) scale(0) rotate(0deg);
+                opacity: 0;
+            }
+            20% {
+                opacity: 1;
+                transform: translateY(80vh) scale(1) rotate(90deg);
+            }
+            80% {
+                opacity: 1;
+                transform: translateY(20vh) scale(1) rotate(270deg);
+            }
+            100% {
+                transform: translateY(-20vh) scale(0) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes leafFall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+            25% {
+                transform: translateY(-50vh) rotate(90deg) scale(0.8);
+                opacity: 0.8;
+            }
+            50% {
+                transform: translateY(0vh) rotate(180deg) scale(1);
+                opacity: 0.6;
+            }
+            75% {
+                transform: translateY(50vh) rotate(270deg) scale(0.9);
+                opacity: 0.4;
+            }
+            100% {
+                transform: translateY(120vh) rotate(360deg) scale(0.7);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, rgba(214, 51, 132, 0.2) 0%, rgba(231, 76, 60, 0.2) 100%);
+            padding: 3px 8px;
+            border-radius: 6px;
+            color: #d63384;
+            font-weight: 600;
+        }
+        
+        .scroll-indicator {
+            position: relative;
+            margin: 30px auto 0;
+            animation: bounce 2s infinite;
+            color: #d63384;
+            font-size: 1.5em;
+            cursor: pointer;
+            display: inline-block;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        
+        @media (max-width: 768px) {
+            .invitation-container {
+                margin: 0;
+                border-radius: 0;
+            }
+            
+            .family-info {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .main-title {
+                font-size: 2.8em;
+            }
+            
+            .couple-names {
+                font-size: 2.2em;
+            }
+            
+            .countdown-timer {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                max-width: 200px;
+                margin: 0 auto;
+            }
+            
+            .countdown-item:not(:first-child) {
+                display: none;
+            }
+            
+            .countdown-number {
+                font-size: 2.5em;
+            }
+            
+            .content {
+                padding: 25px;
+            }
+            
+            .hero-section {
+                min-height: 80vh;
+                padding: 15px 0;
+            }
+            
+            .countdown-section {
+                padding: 20px 15px;
+            }
+            
+            .calendar-section {
+                margin: 20px 0 0 0;
+            }
+            
+            .weekdays {
+                max-width: 100%;
+                gap: 2px;
+            }
+            
+            .calendar-days {
+                max-width: 100%;
+                gap: 2px;
+            }
+            
+            .weekday {
+                font-size: 0.7em;
+                padding: 3px 1px;
+            }
+            
+            .calendar-day {
+                padding: 4px 1px;
+                font-size: 0.75em;
+                min-height: 24px;
+            }
+            
+            .calendar-day.wedding-day {
+                font-size: 0.8em;
+            }
+            
+            .date-badge {
+                top: 15px;
+                right: 15px;
+            }
+            
+            .date-large {
+                font-size: 1.8em;
+            }
+            
+            .month-year {
+                font-size: 0.7em;
+            }
+            
+            .sticky-countdown {
+                padding: 6px 16px;
+                border-radius: 20px;
+                top: -100px;
+            }
+            
+            .sticky-countdown.show {
+                top: 10px;
+            }
+            
+            .sticky-countdown-content {
+                gap: 8px;
+            }
+            
+            .sticky-countdown-text {
+                font-size: 0.8em;
+            }
+            
+            .sticky-countdown-number {
+                font-size: 1.1em;
+                min-width: 25px;
+            }
+            
+            .sticky-countdown-label {
+                font-size: 0.7em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sticky Countdown -->
+    <div class="sticky-countdown" id="stickyCountdown">
+        <div class="sticky-countdown-content">
+            <span class="sticky-countdown-text">Còn</span>
+            <span class="sticky-countdown-number" id="stickyDays">0</span>
+            <span class="sticky-countdown-label">ngày</span>
+        </div>
+    </div>
+    
+    <div class="invitation-container">
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <div class="hero-background"></div>
+            <div class="date-badge">
+                <span class="date-large">29</span>
+                <span class="month-year">12.2025</span>
+            </div>
+            
+            <h1 class="main-title">Wedding Invitation</h1>
+            <div class="couple-names" id="coupleNames">Hoàng Uyên & Viết Đông</div>
+            <div class="wedding-date">Chúng tôi sắp kết hôn</div>
+            
+            <div class="scroll-indicator">↓</div>
+            
+            <!-- Countdown Timer -->
+            <div class="countdown-section">
+                <div class="countdown-title">Đếm ngược đến ngày trọng đại</div>
+                <div class="countdown-timer" id="countdown">
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="days">00</span>
+                        <span class="countdown-label">Ngày</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="hours">00</span>
+                        <span class="countdown-label">Giờ</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="minutes">00</span>
+                        <span class="countdown-label">Phút</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="seconds">00</span>
+                        <span class="countdown-label">Giây</span>
+                    </div>
+                </div>
+                
+                <!-- Calendar Section -->
+                <div class="calendar-section">
+                    <div class="calendar-title">Ngày cưới</div>
+                    <div class="calendar">
+                        <div class="calendar-header">
+                            Tháng 12, 2025
+                        </div>
+                        <div class="calendar-body">
+                            <div class="weekdays">
+                                <div class="weekday">CN</div>
+                                <div class="weekday">T2</div>
+                                <div class="weekday">T3</div>
+                                <div class="weekday">T4</div>
+                                <div class="weekday">T5</div>
+                                <div class="weekday">T6</div>
+                                <div class="weekday">T7</div>
+                            </div>
+                            <div class="calendar-days">
+                                <!-- November days -->
+                                <div class="calendar-day other-month">30</div>
+                                <!-- December days -->
+                                <div class="calendar-day current-month">1</div>
+                                <div class="calendar-day current-month">2</div>
+                                <div class="calendar-day current-month">3</div>
+                                <div class="calendar-day current-month">4</div>
+                                <div class="calendar-day current-month">5</div>
+                                <div class="calendar-day current-month">6</div>
+                                
+                                <div class="calendar-day current-month">7</div>
+                                <div class="calendar-day current-month">8</div>
+                                <div class="calendar-day current-month">9</div>
+                                <div class="calendar-day current-month">10</div>
+                                <div class="calendar-day current-month">11</div>
+                                <div class="calendar-day current-month">12</div>
+                                <div class="calendar-day current-month">13</div>
+                                
+                                <div class="calendar-day current-month">14</div>
+                                <div class="calendar-day current-month">15</div>
+                                <div class="calendar-day current-month">16</div>
+                                <div class="calendar-day current-month">17</div>
+                                <div class="calendar-day current-month">18</div>
+                                <div class="calendar-day current-month">19</div>
+                                <div class="calendar-day current-month">20</div>
+                                
+                                <div class="calendar-day current-month">21</div>
+                                <div class="calendar-day current-month">22</div>
+                                <div class="calendar-day current-month">23</div>
+                                <div class="calendar-day current-month">24</div>
+                                <div class="calendar-day current-month">25</div>
+                                <div class="calendar-day current-month">26</div>
+                                <div class="calendar-day current-month">27</div>
+                                
+                                <div class="calendar-day current-month">28</div>
+                                <div class="calendar-day current-month wedding-day">29</div>
+                                <div class="calendar-day current-month">30</div>
+                                <div class="calendar-day current-month">31</div>
+                                <!-- January days -->
+                                <div class="calendar-day other-month">1</div>
+                                <div class="calendar-day other-month">2</div>
+                                <div class="calendar-day other-month">3</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <!-- Couple Photo Section -->
+            <div class="couple-photo-section">
+                <img src="demo.png" alt="Ảnh cưới của Đông & Uyên" class="couple-photo">
+                <div class="love-quote">
+                    "Tình yêu không chỉ là nhìn vào mắt nhau, mà là cùng nhìn về một hướng"
+                </div>
+            </div>
+            
+            <!-- Family Information -->
+            <h2 class="section-title">Gia đình chúng tôi</h2>
+            <div class="family-info">
+                <div class="family-side">
+                    <h3 class="family-title">♂ Nhà Trai</h3>
+                    <div class="person-info">
+                        <div class="person-name">Trần Viết Đông</div>
+                    </div>
+                    <div class="person-info">
+                        <div class="person-detail"><strong>Thân phụ:</strong> Trần Văn Dương</div>
+                        <div class="person-detail"><strong>Thân mẫu:</strong> Nguyễn Thị Thanh</div>
+                    </div>
+                    <div class="address">
+                        📍 Bến xe Điền Linh<br>Tân Hà Lâm Hà, Lâm Đồng<br>
+                        <a href="https://maps.app.goo.gl/AAVkR1VWQNPDf8LA9" target="_blank" class="map-link">Xem bản đồ</a>
+                    </div>
+                </div>
+                
+                <div class="family-side">
+                    <h3 class="family-title">♀ Nhà Gái</h3>
+                    <div class="person-info">
+                        <div class="person-name">Võ Nguyễn Hoàng Uyên</div>
+                    </div>
+                    <div class="person-info">
+                        <div class="person-detail"><strong>Thân phụ:</strong> Võ Huy Tâm</div>
+                        <div class="person-detail"><strong>Thân mẫu:</strong> Nguyễn Thị Kim Liên</div>
+                    </div>
+                    <div class="address">
+                        📍 25 Huyền Trân Công Chúa<br>Phường 4, Đà Lạt, Lâm Đồng<br>
+                        <a href="https://maps.app.goo.gl/p4dQTXYQYy4Eq3eQ9" target="_blank" class="map-link">Xem bản đồ</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Wedding Ceremonies -->
+            <div class="ceremony-section">
+                <h2 class="ceremony-title">🌸 Lễ Vu Quy</h2>
+                <div class="ceremony-details">
+                    <div class="ceremony-item">
+                        <h4>🏠 Lễ Vu Quy</h4>
+                        <div class="ceremony-info">
+                            <div class="time-info">⏰ 07:00 - Chủ nhật, 29/12/2025</div>
+                            <div style="margin: 8px 0; color: #6c757d;">📅 Ngày 10 tháng 11 năm Ất Tỵ</div>
+                            <div class="location-info">📍 25 Huyền Trân Công Chúa, P4, Đà Lạt, Lâm Đồng
+                                <a href="https://maps.app.goo.gl/p4dQTXYQYy4Eq3eQ9" target="_blank" class="ceremony-map-link">Bản đồ</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="ceremony-item">
+                        <h4>🏨 Tiệc Cưới</h4>
+                        <div class="ceremony-info">
+                            <div class="time-info">⏰ 16:30 - Thứ bảy, 28/12/2025</div>
+                            <div style="margin: 8px 0; color: #6c757d;">📅 Ngày 9 tháng 11 năm Ất Tỵ</div>
+                            <div class="location-info">📍 Ana Mandara Villas Dalat Resort
+                                <a href="https://maps.app.goo.gl/R4nCXxEaBJThVNQi6" target="_blank" class="ceremony-map-link">Bản đồ</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ceremony-section">
+                <h2 class="ceremony-title">🏮 Lễ Tân Hôn</h2>
+                <div class="ceremony-details">
+                    <div class="ceremony-item">
+                        <h4>🏠 Lễ Tân Hôn</h4>
+                        <div class="ceremony-info">
+                            <div class="time-info">⏰ 10:00 - Chủ nhật, 29/12/2025</div>
+                            <div style="margin: 8px 0; color: #6c757d;">📅 Ngày 10 tháng 11 năm Ất Tỵ</div>
+                            <div class="location-info">📍 Bến xe Điền Linh, Tân Hà Lâm Hà, Lâm Đồng
+                                <a href="https://maps.app.goo.gl/AAVkR1VWQNPDf8LA9" target="_blank" class="ceremony-map-link">Bản đồ</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="ceremony-item">
+                        <h4>🍽️ Tiệc Mừng Cưới</h4>
+                        <div class="ceremony-info">
+                            <div class="time-info">⏰ 11:00 - Chủ nhật, 29/12/2025</div>
+                            <div style="margin: 8px 0; color: #6c757d;">📅 Ngày 10 tháng 11 năm Ất Tỵ</div>
+                            <div class="location-info">📍 Bến xe Điền Linh, Tân Hà Lâm Hà, Lâm Đồng
+                                <a href="https://maps.app.goo.gl/AAVkR1VWQNPDf8LA9" target="_blank" class="ceremony-map-link">Bản đồ</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <div class="footer-message">Trân trọng kính mời</div>
+            <div class="footer-content">
+                Sự hiện diện của quý khách là niềm vinh hạnh cho gia đình chúng tôi<br>
+                <strong>Cảm ơn bạn rất nhiều vì đã gửi những lời chúc mừng tốt đẹp nhất đến đám cưới của chúng tôi!</strong>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Countdown Timer
+            function updateCountdown() {
+                const weddingDate = new Date('2025-12-29T10:00:00');
+                const now = new Date();
+                const timeDiff = weddingDate - now;
+                
+                if (timeDiff > 0) {
+                    const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+                    
+                    // Update main countdown
+                    document.getElementById('days').textContent = days.toString().padStart(2, '0');
+                    document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                    document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                    document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+                    
+                    // Update sticky countdown
+                    document.getElementById('stickyDays').textContent = days;
+                } else {
+                    document.getElementById('days').textContent = '00';
+                    document.getElementById('hours').textContent = '00';
+                    document.getElementById('minutes').textContent = '00';
+                    document.getElementById('seconds').textContent = '00';
+                    document.getElementById('stickyDays').textContent = '0';
+                }
+            }
+            
+            // Update countdown every second
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+            
+            // Sticky countdown scroll handler
+            const stickyCountdown = document.getElementById('stickyCountdown');
+            const heroSection = document.querySelector('.hero-section');
+            
+            function handleScroll() {
+                const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                if (scrollTop > heroBottom - 100) {
+                    stickyCountdown.classList.add('show');
+                } else {
+                    stickyCountdown.classList.remove('show');
+                }
+            }
+            
+            window.addEventListener('scroll', handleScroll);
+            
+            // Initial check
+            handleScroll();
+            
+            // Intersection Observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('.ceremony-section, .family-side, .couple-photo-section').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                observer.observe(el);
+            });
+            
+            // Create falling petals
+            function createPetal() {
+                const petal = document.createElement('div');
+                petal.className = 'petal';
+                petal.style.left = Math.random() * 100 + 'vw';
+                petal.style.animationDuration = (Math.random() * 4 + 3) + 's';
+                petal.style.opacity = Math.random() * 0.8 + 0.2;
+                petal.style.transform = 'scale(' + (Math.random() * 0.8 + 0.6) + ')';
+                document.body.appendChild(petal);
+                
+                setTimeout(() => {
+                    if (petal.parentNode) {
+                        petal.parentNode.removeChild(petal);
+                    }
+                }, 7000);
+            }
+            
+            // Create floating hearts
+            function createFloatingHeart() {
+                const heart = document.createElement('div');
+                heart.className = 'floating-heart';
+                heart.innerHTML = '♥';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 5 + 8) + 's';
+                heart.style.fontSize = (Math.random() * 10 + 15) + 'px';
+                document.body.appendChild(heart);
+                
+                setTimeout(() => {
+                    if (heart.parentNode) {
+                        heart.parentNode.removeChild(heart);
+                    }
+                }, 13000);
+            }
+            
+            // Create falling leaves
+            function createLeaf() {
+                const leaf = document.createElement('div');
+                leaf.className = 'leaf';
+                leaf.style.left = Math.random() * 100 + 'vw';
+                leaf.style.animationDuration = (Math.random() * 6 + 4) + 's';
+                leaf.style.animationDelay = '0s'; // Start immediately
+                
+                // Random leaf variations
+                const leafTypes = [
+                    'linear-gradient(45deg, #228B22, #32CD32, #90EE90)',
+                    'linear-gradient(45deg, #8FBC8F, #98FB98, #F0FFF0)',
+                    'linear-gradient(45deg, #2E8B57, #3CB371, #20B2AA)',
+                    'linear-gradient(45deg, #006400, #008000, #32CD32)'
+                ];
+                
+                leaf.style.background = leafTypes[Math.floor(Math.random() * leafTypes.length)];
+                leaf.style.transform = 'scale(' + (Math.random() * 0.6 + 0.7) + ')';
+                
+                document.body.appendChild(leaf);
+                
+                setTimeout(() => {
+                    if (leaf.parentNode) {
+                        leaf.parentNode.removeChild(leaf);
+                    }
+                }, 10000);
+            }
+            
+            // Sparkle effect on click
+            function createSparkle(x, y) {
+                const sparkle = document.createElement('div');
+                sparkle.style.position = 'fixed';
+                sparkle.style.left = x + 'px';
+                sparkle.style.top = y + 'px';
+                sparkle.style.width = '6px';
+                sparkle.style.height = '6px';
+                sparkle.style.background = 'linear-gradient(45deg, #ffd700, #ffed4e)';
+                sparkle.style.borderRadius = '50%';
+                sparkle.style.pointerEvents = 'none';
+                sparkle.style.zIndex = '1000';
+                sparkle.style.animation = 'sparkleEffect 1.2s ease-out forwards';
+                document.body.appendChild(sparkle);
+                
+                setTimeout(() => {
+                    if (sparkle.parentNode) {
+                        sparkle.parentNode.removeChild(sparkle);
+                    }
+                }, 1200);
+            }
+            
+            // Add sparkle animation
+            const sparkleStyle = document.createElement('style');
+            sparkleStyle.textContent = `
+                @keyframes sparkleEffect {
+                    0% {
+                        transform: scale(0) rotate(0deg);
+                        opacity: 1;
+                    }
+                    50% {
+                        transform: scale(1.5) rotate(180deg);
+                        opacity: 1;
+                    }
+                    100% {
+                        transform: scale(0) rotate(360deg);
+                        opacity: 0;
+                    }
+                }
+            `;
+            document.head.appendChild(sparkleStyle);
+            
+            // Add click sparkle effect
+            document.addEventListener('click', function(e) {
+                for (let i = 0; i < 8; i++) {
+                    setTimeout(() => {
+                        createSparkle(
+                            e.clientX + (Math.random() - 0.5) * 60,
+                            e.clientY + (Math.random() - 0.5) * 60
+                        );
+                    }, i * 80);
+                }
+            });
+            
+            // Start animations immediately
+            createLeaf(); // Create first leaf immediately
+            createPetal(); // Create first petal immediately
+            
+            setInterval(createPetal, 1200);
+            setInterval(createFloatingHeart, 4000);
+            setInterval(createLeaf, 1500);
+            
+            // Continuous typewriter effect for couple names
+            function continuousTypeWriter(element, text, typeSpeed, pauseTime) {
+                function runAnimation() {
+                    element.innerHTML = '';
+                    let i = 0;
+                    
+                    function type() {
+                        if (i < text.length) {
+                            element.innerHTML += text.charAt(i);
+                            i++;
+                            setTimeout(type, typeSpeed);
+                        } else {
+                            // Pause when complete, then restart
+                            setTimeout(() => {
+                                // Add blinking cursor effect
+                                element.innerHTML = text + '<span style="animation: blink 1s infinite;">|</span>';
+                                setTimeout(() => {
+                                    runAnimation(); // Restart the animation
+                                }, pauseTime);
+                            }, 1000);
+                        }
+                    }
+                    type();
+                }
+                runAnimation();
+            }
+            
+            // Add blinking cursor animation
+            const cursorStyle = document.createElement('style');
+            cursorStyle.textContent = `
+                @keyframes blink {
+                    0%, 50% { opacity: 1; }
+                    51%, 100% { opacity: 0; }
+                }
+            `;
+            document.head.appendChild(cursorStyle);
+            
+            // Apply continuous typewriter effect
+            setTimeout(() => {
+                const coupleNames = document.getElementById('coupleNames');
+                if (coupleNames) {
+                    continuousTypeWriter(coupleNames, 'Hoàng Uyên & Viết Đông', 200, 3000);
+                }
+            }, 2000);
+            
+            // Smooth scroll for scroll indicator
+            document.querySelector('.scroll-indicator').addEventListener('click', function() {
+                document.querySelector('.content').scrollIntoView({ 
+                    behavior: 'smooth' 
+                });
+            });
+            
+            // Add hover effects to ceremony items
+            document.querySelectorAll('.ceremony-item').forEach((item, index) => {
+                item.style.animationDelay = (index * 0.3) + 's';
+                
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateX(15px) scale(1.02)';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateX(0) scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

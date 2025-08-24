@@ -36,7 +36,7 @@
     .title span{display:inline-block;border-bottom:1px solid var(--line);padding-bottom:6px}
 
     .backdrop{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;
-      font-size:min(56vw,720px);font-family:'Times New Roman',serif;color:rgba(255,255,255,.045);line-height:1}
+      font-size:min(56vw,720px);color:rgba(255,255,255,.045);line-height:1}
 
     .names{position:relative;margin-top:2vh;text-align:center}
     .names .amp{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;
@@ -57,31 +57,25 @@
       filter:drop-shadow(0 6px 6px rgba(0,0,0,.25));animation:run 14s linear infinite, bob 550ms ease-in-out infinite}
     .runner.small{width:96px;height:96px;animation-duration:16s}
 
-    /* controls */
-    .controls{position:absolute;right:14px;top:14px;display:flex;gap:10px}
-    button{font-family:inherit;background:transparent;color:var(--text);border:1px solid var(--line);
-      padding:8px 12px;border-radius:999px;cursor:pointer}
-    button:hover{background:rgba(255,255,255,.08)}
+    /* --- Text animations (stronger) --- */
+    @keyframes fadeDown{0%{opacity:0;transform:translateY(-20px)}100%{opacity:1;transform:translateY(0)}}
+    @keyframes rise{0%{opacity:0;transform:translateY(20px)}100%{opacity:1;transform:translateY(0)}}
+    @keyframes shimmer{0%{background-position:-300% 0}100%{background-position:300% 0}}
+    @keyframes gentleFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+    @keyframes breathe{0%,100%{transform:scale(1);opacity:.7}50%{transform:scale(1.12);opacity:1}}
+    @keyframes tick{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
 
-    /* --- Text animations --- */
-    @keyframes fadeDown{0%{opacity:0;transform:translateY(-12px)}100%{opacity:1;transform:translateY(0)}}
-    @keyframes rise{0%{opacity:0;transform:translateY(12px)}100%{opacity:1;transform:translateY(0)}}
-    @keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
-    @keyframes gentleFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
-    @keyframes breathe{0%,100%{transform:scale(1);opacity:.75}50%{transform:scale(1.06);opacity:1}}
-    @keyframes tick{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
-
-    .title{animation:fadeDown .8s ease-out both .15s}
-    .names .row{animation:gentleFloat 6s ease-in-out infinite}
+    .title{animation:fadeDown 1s ease-out both .1s}
+    .names .row{animation:gentleFloat 4s ease-in-out infinite}
     .names h1{
       background:linear-gradient(90deg,var(--text) 0%,var(--soft) 50%,var(--text) 100%);
-      -webkit-background-clip:text;background-clip:text;color:transparent;background-size:200% 100%;
-      animation:shimmer 5s linear infinite, rise .9s ease-out both .35s;
+      -webkit-background-clip:text;background-clip:text;color:transparent;background-size:300% 100%;
+      animation:shimmer 3s linear infinite, rise 1s ease-out both .3s;
     }
-    .names .amp{animation:breathe 3.6s ease-in-out infinite}
-    .meta{animation:rise .9s ease-out both .6s}
-    .meta .date{animation:tick 2.6s ease-in-out infinite}
-    .lunar{animation:rise .9s ease-out both .8s;opacity:.85}
+    .names .amp{animation:breathe 3s ease-in-out infinite}
+    .meta{animation:rise 1s ease-out both .5s}
+    .meta .date{animation:tick 1.8s ease-in-out infinite}
+    .lunar{animation:rise 1s ease-out both .7s;opacity:.9}
 
     /* runner keyframes */
     @keyframes run{from{transform:translateX(-15%)}to{transform:translateX(115vw)}} 
@@ -100,12 +94,6 @@
 </head>
 <body>
   <div class="card">
-    <div class="controls">
-      <button id="slower">Chạy chậm</button>
-      <button id="faster">Chạy nhanh</button>
-      <button id="reverse">Đổi hướng</button>
-    </div>
-
     <div class="backdrop" aria-hidden="true">囍</div>
 
     <div class="inner">
@@ -134,22 +122,5 @@
       <img class="runner small" id="dudu" src="dudu_bear.png" alt="Dudu running" style="animation-delay:-3.2s">
     </div>
   </div>
-
-  <script>
-    // speed & direction controls
-    const bears = [document.getElementById('bubu'), document.getElementById('dudu')];
-    let speed = 1; let reversed = false;
-
-    function updateAnimation(){
-      bears.forEach(b => {
-        const base = b.classList.contains('small') ? 16 : 14;
-        const dur = (base / speed).toFixed(2);
-        b.style.animation = `run ${dur}s linear infinite ${reversed? 'reverse' : ''}, bob 550ms ease-in-out infinite`;
-      });
-    }
-    document.getElementById('slower').onclick = () => {speed = Math.max(.4, speed - .2); updateAnimation();}
-    document.getElementById('faster').onclick = () => {speed = Math.min(3, speed + .2); updateAnimation();}
-    document.getElementById('reverse').onclick = () => {reversed = !reversed; updateAnimation();}
-  </script>
 </body>
 </html>
