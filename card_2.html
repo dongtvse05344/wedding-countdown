@@ -794,12 +794,14 @@
             font-size: 3.5em;
             margin-bottom: 40px;
             animation: fadeInScale 1s ease-out 0.3s both;
+            color: rgba(255, 255, 255, 0.75);
         }
         
         .footer.fullscreen .footer-content {
             font-size: 1.4em;
             max-width: 800px;
             animation: fadeInUp 1s ease-out 0.6s both;
+            color: rgba(255, 255, 255, 0.8);
         }
         
         .back-to-top {
@@ -882,6 +884,8 @@
             margin-bottom: 20px;
             position: relative;
             z-index: 1;
+            color: rgba(255, 255, 255, 0.8);
+            opacity: 0.9;
         }
         
         .footer-content {
@@ -889,33 +893,66 @@
             line-height: 1.6;
             position: relative;
             z-index: 1;
+            color: rgba(255, 255, 255, 0.85);
+            opacity: 0.9;
+        }
+        
+        .footer-content strong {
+            color: rgba(255, 255, 255, 0.95);
+            opacity: 1;
         }
         
         .invitee-name {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8em;
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.2em;
             font-weight: 700;
-            color: white;
-            margin: 15px 0;
+            color: #FF69B4;
+            margin: 25px 0;
             position: relative;
-            z-index: 1;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            animation: inviteeGlow 3s ease-in-out infinite alternate;
+            z-index: 2;
+            text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5), 
+                         0 0 40px rgba(255, 105, 180, 0.6),
+                         0 0 80px rgba(255, 105, 180, 0.3),
+                         0 0 120px rgba(255, 255, 255, 0.2);
+            animation: inviteeGlow 2.5s ease-in-out infinite alternate;
+            letter-spacing: 2px;
+            text-transform: capitalize;
+            background: linear-gradient(45deg, #FF69B4, #FFB6C1, #FF1493);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: inviteeGlow 2.5s ease-in-out infinite alternate, gradientMove 4s ease-in-out infinite;
         }
         
         @keyframes inviteeGlow {
             0% {
-                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+                text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5), 
+                             0 0 40px rgba(255, 105, 180, 0.6),
+                             0 0 80px rgba(255, 105, 180, 0.3);
+                transform: scale(1);
+                filter: brightness(1);
             }
             100% {
-                text-shadow: 0 0 20px rgba(255, 255, 255, 0.5), 2px 2px 4px rgba(0, 0, 0, 0.3);
+                text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5), 
+                             0 0 60px rgba(255, 105, 180, 0.8),
+                             0 0 100px rgba(255, 105, 180, 0.5),
+                             0 0 140px rgba(255, 255, 255, 0.3);
+                transform: scale(1.05);
+                filter: brightness(1.2);
             }
         }
         
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
         .footer.fullscreen .invitee-name {
-            font-size: 2.5em;
-            margin: 25px 0;
-            animation: fadeInScale 1s ease-out 0.5s both, inviteeGlow 3s ease-in-out 1.5s infinite alternate;
+            font-size: 4.2em;
+            margin: 40px 0;
+            animation: fadeInScale 1s ease-out 0.5s both, inviteeGlow 2.5s ease-in-out 1.5s infinite alternate, gradientMove 4s ease-in-out 1.5s infinite;
         }
         
         .petal {
@@ -1231,21 +1268,25 @@
             .footer.fullscreen .footer-message {
                 font-size: 2.5em;
                 margin-bottom: 30px;
+                color: rgba(255, 255, 255, 0.75);
             }
             
             .footer.fullscreen .footer-content {
                 font-size: 1.2em;
                 padding: 0 20px;
+                color: rgba(255, 255, 255, 0.8);
             }
             
             .invitee-name {
-                font-size: 1.5em;
-                margin: 12px 0;
+                font-size: 2.6em;
+                margin: 20px 0;
+                line-height: 1.1;
+                letter-spacing: 1px;
             }
             
             .footer.fullscreen .invitee-name {
-                font-size: 2em;
-                margin: 20px 0;
+                font-size: 3.4em;
+                margin: 30px 0;
             }
             
             .back-to-top {
