@@ -1059,6 +1059,32 @@
                 width: 100%;
                 text-align: center;
             }
+            
+            .couple-names {
+                font-size: 1.6em;
+                margin: 25px 0 35px 0;
+                line-height: 1.2;
+                height: auto;
+                min-height: 120px;
+            }
+            
+            .couple-names.mobile-layout {
+                visibility: hidden;
+                position: relative;
+            }
+            
+            .couple-names.mobile-layout::before {
+                content: "Hoàng Uyên\A&\AViết Đông";
+                white-space: pre-line;
+                visibility: visible;
+                position: absolute;
+                left: 50%;
+                top: 0;
+                transform: translateX(-50%);
+                width: 100%;
+                text-align: center;
+                font-size: 1em;
+            }
         }
         
         @media (max-width: 768px) {
@@ -1779,23 +1805,48 @@
             setInterval(createLeaf, 1500);
             
             // Continuous typewriter effect for couple names
+            let typewriterRunning = false;
+            let typewriterTimeout;
+            
             function continuousTypeWriter(element, text, typeSpeed, pauseTime) {
+                if (window.innerWidth <= 500 || typewriterRunning) return; // Don't run on mobile or if already running
+                
+                typewriterRunning = true;
+                
                 function runAnimation() {
+                    if (window.innerWidth <= 500) {
+                        typewriterRunning = false;
+                        return; // Stop if switched to mobile
+                    }
+                    
                     element.innerHTML = '';
                     let i = 0;
                     
                     function type() {
+                        if (window.innerWidth <= 500) {
+                            typewriterRunning = false;
+                            return; // Stop if switched to mobile during typing
+                        }
+                        
                         if (i < text.length) {
                             element.innerHTML += text.charAt(i);
                             i++;
-                            setTimeout(type, typeSpeed);
+                            typewriterTimeout = setTimeout(type, typeSpeed);
                         } else {
                             // Pause when complete, then restart
-                            setTimeout(() => {
+                            typewriterTimeout = setTimeout(() => {
+                                if (window.innerWidth <= 500) {
+                                    typewriterRunning = false;
+                                    return;
+                                }
                                 // Add blinking cursor effect
                                 element.innerHTML = text + '<span style="animation: blink 1s infinite;">|</span>';
-                                setTimeout(() => {
-                                    runAnimation(); // Restart the animation
+                                typewriterTimeout = setTimeout(() => {
+                                    if (window.innerWidth > 500) {
+                                        runAnimation(); // Restart the animation
+                                    } else {
+                                        typewriterRunning = false;
+                                    }
                                 }, pauseTime);
                             }, 1000);
                         }
@@ -1803,6 +1854,13 @@
                     type();
                 }
                 runAnimation();
+            }
+            
+            function stopTypewriter() {
+                typewriterRunning = false;
+                if (typewriterTimeout) {
+                    clearTimeout(typewriterTimeout);
+                }
             }
             
             // Add blinking cursor animation
@@ -1815,13 +1873,36 @@
             `;
             document.head.appendChild(cursorStyle);
             
-            // Apply continuous typewriter effect
-            setTimeout(() => {
+            // Function to handle mobile/desktop layout switching
+            function handleCoupleNamesLayout() {
                 const coupleNames = document.getElementById('coupleNames');
-                if (coupleNames) {
-                    continuousTypeWriter(coupleNames, 'Hoàng Uyên & Viết Đông', 200, 3000);
+                if (!coupleNames) return;
+                
+                if (window.innerWidth <= 500) {
+                    // Mobile: stop animation completely and use CSS 3-line layout
+                    stopTypewriter();
+                    coupleNames.innerHTML = 'Hoàng Uyên & Viết Đông';
+                    coupleNames.classList.add('mobile-layout');
+                } else {
+                    // Desktop: remove mobile layout and start animation
+                    coupleNames.classList.remove('mobile-layout');
+                    stopTypewriter(); // Stop any existing animation first
+                    setTimeout(() => {
+                        continuousTypeWriter(coupleNames, 'Hoàng Uyên & Viết Đông', 200, 3000);
+                    }, 200);
                 }
+            }
+            
+            // Apply layout on load
+            setTimeout(() => {
+                handleCoupleNamesLayout();
             }, 2000);
+            
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                clearTimeout(window.resizeTimeout);
+                window.resizeTimeout = setTimeout(handleCoupleNamesLayout, 300);
+            });
             
             // Smooth scroll for scroll indicator
             document.querySelector('.scroll-indicator').addEventListener('click', function() {
