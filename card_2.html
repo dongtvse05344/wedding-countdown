@@ -208,11 +208,35 @@
         }
         
         .gate-door.sliding-left {
-            transform: translateX(-100%);
+            animation: slideLeftPhased 4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
         }
         
         .gate-door.sliding-right {
-            transform: translateX(100%);
+            animation: slideRightPhased 4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+        
+        @keyframes slideLeftPhased {
+            0% {
+                transform: translateX(0%);
+            }
+            60% {
+                transform: translateX(-60%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+        
+        @keyframes slideRightPhased {
+            0% {
+                transform: translateX(0%);
+            }
+            60% {
+                transform: translateX(60%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
         }
         
         /* Gate Decorations */
@@ -612,86 +636,6 @@
             pointer-events: none;
         }
         
-        /* Gate control button */
-        .gate-control-btn {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, rgba(139, 0, 0, 0.9), rgba(220, 20, 60, 0.9));
-            border: 2px solid rgba(255, 215, 0, 0.8);
-            border-radius: 50%;
-            color: #FFD700;
-            font-size: 20px;
-            cursor: pointer;
-            z-index: 10001;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-            opacity: 1;
-            transform: scale(1);
-        }
-        
-        .gate-control-btn:hover {
-            transform: scale(1.1);
-            background: linear-gradient(135deg, rgba(220, 20, 60, 0.9), rgba(255, 69, 0, 0.9));
-            box-shadow: 0 6px 25px rgba(220, 20, 60, 0.4);
-            border-color: rgba(255, 215, 0, 1);
-        }
-        
-        .gate-control-btn:active {
-            transform: scale(0.95);
-        }
-        
-        .gate-control-btn.hidden {
-            opacity: 0;
-            transform: scale(0.8);
-            pointer-events: none;
-        }
-        
-        .gate-control-btn.show {
-            opacity: 1;
-            transform: scale(1);
-            pointer-events: all;
-        }
-        
-        @keyframes gateButtonAppear {
-            0% {
-                opacity: 0;
-                transform: scale(0.8) translateY(-20px);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1) translateY(0px);
-            }
-        }
-        
-        /* Gate control tooltip */
-        .gate-control-btn::before {
-            content: attr(data-tooltip);
-            position: absolute;
-            left: 60px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
-            padding: 8px 12px;
-            border-radius: 6px;
-            font-size: 12px;
-            white-space: nowrap;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-            z-index: 1;
-        }
-        
-        .gate-control-btn:hover::before {
-            opacity: 1;
-        }
         
         /* Mobile optimizations for gate */
         @media (max-width: 768px) {
@@ -734,13 +678,6 @@
                 border-width: 2px;
             }
             
-            .gate-control-btn {
-                width: 45px;
-                height: 45px;
-                font-size: 18px;
-                top: 15px;
-                left: 15px;
-            }
         }
         
         /* Remove conflicting animations */
@@ -1446,6 +1383,15 @@
         .ceremony-info {
             color: #5a6c7d;
             line-height: 1.8;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        
+        .ceremony-text-content {
+            flex: 1;
+            min-width: 300px;
         }
         
         .time-info {
@@ -1489,24 +1435,29 @@
         /* Embedded Google Maps */
         .embedded-map {
             width: 100%;
-            height: 200px;
+            height: 120px;
             border: none;
-            border-radius: 10px;
-            margin-top: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-top: 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
         }
         
         .embedded-map:hover {
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+            transform: translateY(-3px) scale(1.01);
         }
         
         .map-container {
             position: relative;
             overflow: hidden;
-            border-radius: 10px;
-            margin-top: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            margin-left: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2px;
+            width: 40%;
+            flex-shrink: 0;
         }
         
         .map-toggle {
@@ -1531,6 +1482,31 @@
         
         .map-toggle::before {
             content: "🗺️";
+        }
+        
+        /* Additional responsive breakpoints for maps */
+        @media (max-width: 480px) {
+            .embedded-map {
+                height: 80px;
+                border-radius: 6px;
+            }
+            
+            .map-container {
+                border-radius: 6px;
+                margin-top: 8px;
+                width: 100%;
+                margin-left: 0;
+            }
+            
+            .ceremony-info {
+                flex-direction: column;
+            }
+        }
+        
+        @media (min-width: 1200px) {
+            .embedded-map {
+                height: 280px;
+            }
         }
         
         .sticky-countdown {
@@ -2296,7 +2272,22 @@
             }
             
             .embedded-map {
-                height: 150px;
+                height: 100px;
+            }
+            
+            .ceremony-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .map-container {
+                width: 100%;
+                margin-left: 0;
+                margin-top: 10px;
+            }
+            
+            .ceremony-text-content {
+                min-width: auto;
             }
         }
         
@@ -2497,10 +2488,6 @@
         </div>
     </div>
     
-    <!-- Gate Control Button -->
-    <button class="gate-control-btn" id="gateControlBtn" data-tooltip="Mở cổng" aria-label="Điều khiển cổng">
-        🚪
-    </button>
     
     <!-- Sticky Countdown -->
     <div class="sticky-countdown" id="stickyCountdown">
@@ -2731,10 +2718,12 @@
                     <div class="ceremony-item">
                         <h4>🏠 Lễ Vu Quy</h4>
                         <div class="ceremony-info">
-                            <div class="time-info">⏰ 07:00 - Thứ bảy, 28/12/2025</div>
-                            <div style="margin: 8px 0; color: #6c757d;">📅 Ngày 10 tháng 11 năm Ất Tỵ</div>
-                            <div class="location-info">📍 25 Huyền Trân Công Chúa, P4, Đà Lạt, Lâm Đồng
-                                <a href="https://maps.app.goo.gl/p4dQTXYQYy4Eq3eQ9" target="_blank" class="ceremony-map-link">Bản đồ</a>
+                            <div class="ceremony-text-content">
+                                <div class="time-info">⏰ 07:00 - Thứ bảy, 28/12/2025</div>
+                                <div style="margin: 8px 0; color: #6c757d;">📅 Ngày 10 tháng 11 năm Ất Tỵ</div>
+                                <div class="location-info">📍 25 Huyền Trân Công Chúa, P4, Đà Lạt, Lâm Đồng
+                                    <a href="https://maps.app.goo.gl/p4dQTXYQYy4Eq3eQ9" target="_blank" class="ceremony-map-link">Bản đồ</a>
+                                </div>
                             </div>
                             <div class="map-container">
                                 <iframe class="embedded-map" 
@@ -2750,18 +2739,15 @@
                     <div class="ceremony-item">
                         <h4>🏨 Tiệc Cưới</h4>
                         <div class="ceremony-info">
-                            <div class="time-info">⏰ 16:30 - Thứ sáu, 27/12/2025</div>
-                            <div style="margin: 8px 0; color: #6c757d;">📅 Ngày 9 tháng 11 năm Ất Tỵ</div>
-                            <div class="location-info">📍 Ana Mandara Villas Dalat Resort
-                                <a href="https://maps.app.goo.gl/R4nCXxEaBJThVNQi6" target="_blank" class="ceremony-map-link">Bản đồ</a>
+                            <div class="ceremony-text-content">
+                                <div class="time-info">⏰ 16:30 - Thứ sáu, 27/12/2025</div>
+                                <div style="margin: 8px 0; color: #6c757d;">📅 Ngày 9 tháng 11 năm Ất Tỵ</div>
+                                <div class="location-info">📍 Ana Mandara Villas Dalat Resort
+                                    <a href="https://maps.app.goo.gl/R4nCXxEaBJThVNQi6" target="_blank" class="ceremony-map-link">Bản đồ</a>
+                                </div>
                             </div>
                             <div class="map-container">
-                                <iframe class="embedded-map" 
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3902.4567!2d108.4321!3d11.9567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3171128e15b36a21%3A0xa06c6b4c3ef7e8d2!2sAna%20Mandara%20Villas%20Dalat%20Resort%20%26%20Spa!5e0!3m2!1sen!2s!4v1640995300000!5m2!1sen!2s" 
-                                    allowfullscreen="" 
-                                    loading="lazy" 
-                                    referrerpolicy="no-referrer-when-downgrade">
-                                </iframe>
+                               <iframe class="embedded-map" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3903.439485779722!2d108.4210251!3d11.9440442!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31716cd40cc0684b%3A0x6b9892057c05b737!2sAna%20Mandara%20Villas%20Dalat%20Resort%20%26%20Spa!5e0!3m2!1svi!2ssg!4v1760083379071!5m2!1svi!2ssg" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                             </div>
                         </div>
                     </div>
@@ -2774,18 +2760,15 @@
                     <div class="ceremony-item">
                         <h4>🏠 Lễ Tân Hôn</h4>
                         <div class="ceremony-info">
-                            <div class="time-info">⏰ 10:00 - Thứ bảy, 28/12/2025</div>
-                            <div style="margin: 8px 0; color: #6c757d;">📅 Ngày 10 tháng 11 năm Ất Tỵ</div>
-                            <div class="location-info">📍 Bến xe Điền Linh, Tân Hà Lâm Hà, Lâm Đồng
-                                <a href="https://maps.app.goo.gl/AAVkR1VWQNPDf8LA9" target="_blank" class="ceremony-map-link">Bản đồ</a>
+                            <div class="ceremony-text-content">
+                                <div class="time-info">⏰ 10:00 - Thứ bảy, 28/12/2025</div>
+                                <div style="margin: 8px 0; color: #6c757d;">📅 Ngày 10 tháng 11 năm Ất Tỵ</div>
+                                <div class="location-info">📍 Bến xe Điền Linh, Tân Hà Lâm Hà, Lâm Đồng
+                                    <a href="https://maps.app.goo.gl/AAVkR1VWQNPDf8LA9" target="_blank" class="ceremony-map-link">Bản đồ</a>
+                                </div>
                             </div>
                             <div class="map-container">
-                                <iframe class="embedded-map" 
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.2145!2d108.1234!3d12.0567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3171045e8c9f8b7d%3A0x3e5f2a1b9c8d7e6f!2sB%E1%BA%BFn%20xe%20%C4%90i%E1%BB%81n%20Linh%2C%20T%C3%A2n%20H%C3%A0%2C%20L%C3%A2m%20H%C3%A0%2C%20L%C3%A2m%20%C4%90%E1%BB%93ng%2C%20Vietnam!5e0!3m2!1sen!2s!4v1640995400000!5m2!1sen!2s" 
-                                    allowfullscreen="" 
-                                    loading="lazy" 
-                                    referrerpolicy="no-referrer-when-downgrade">
-                                </iframe>
+                                <iframe class="embedded-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3906.2401379241533!2d108.20434709999999!3d11.7481258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31715c9d10088e67%3A0xcce870d91e56e99e!2zVsSDbiBQaG_MgG5nIFhlIMSQaeG7gW4gTGluaCBUw6JuIEjDoA!5e0!3m2!1svi!2ssg!4v1760083424803!5m2!1svi!2ssg" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                             </div>
                         </div>
                     </div>
@@ -2793,18 +2776,15 @@
                     <div class="ceremony-item">
                         <h4>🍽️ Tiệc Mừng Cưới</h4>
                         <div class="ceremony-info">
-                            <div class="time-info">⏰ 11:00 - Thứ bảy, 28/12/2025</div>
-                            <div style="margin: 8px 0; color: #6c757d;">📅 Ngày 10 tháng 11 năm Ất Tỵ</div>
-                            <div class="location-info">📍 Bến xe Điền Linh, Tân Hà Lâm Hà, Lâm Đồng
-                                <a href="https://maps.app.goo.gl/AAVkR1VWQNPDf8LA9" target="_blank" class="ceremony-map-link">Bản đồ</a>
+                            <div class="ceremony-text-content">
+                                <div class="time-info">⏰ 11:00 - Thứ bảy, 28/12/2025</div>
+                                <div style="margin: 8px 0; color: #6c757d;">📅 Ngày 10 tháng 11 năm Ất Tỵ</div>
+                                <div class="location-info">📍 Bến xe Điền Linh, Tân Hà Lâm Hà, Lâm Đồng
+                                    <a href="https://maps.app.goo.gl/AAVkR1VWQNPDf8LA9" target="_blank" class="ceremony-map-link">Bản đồ</a>
+                                </div>
                             </div>
                             <div class="map-container">
-                                <iframe class="embedded-map" 
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.2145!2d108.1234!3d12.0567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3171045e8c9f8b7d%3A0x3e5f2a1b9c8d7e6f!2sB%E1%BA%BFn%20xe%20%C4%90i%E1%BB%81n%20Linh%2C%20T%C3%A2n%20H%C3%A0%2C%20L%C3%A2m%20H%C3%A0%2C%20L%C3%A2m%20%C4%90%E1%BB%93ng%2C%20Vietnam!5e0!3m2!1sen!2s!4v1640995500000!5m2!1sen!2s" 
-                                    allowfullscreen="" 
-                                    loading="lazy" 
-                                    referrerpolicy="no-referrer-when-downgrade">
-                                </iframe>
+                               <iframe class="embedded-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3906.2401379241533!2d108.20434709999999!3d11.7481258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31715c9d10088e67%3A0xcce870d91e56e99e!2zVsSDbiBQaG_MgG5nIFhlIMSQaeG7gW4gTGluaCBUw6JuIEjDoA!5e0!3m2!1svi!2ssg!4v1760083424803!5m2!1svi!2ssg" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                             </div>
                         </div>
                     </div>
@@ -2838,7 +2818,6 @@
                 const gateOverlay = document.getElementById('weddingGate');
                 const gateLeft = document.getElementById('gateLeft');
                 const gateRight = document.getElementById('gateRight');
-                const gateControlBtn = document.getElementById('gateControlBtn');
                 
                 // Reset gate state
                 gateIsOpen = false;
@@ -2933,10 +2912,7 @@
                         }
                     }, 200);
                     
-                    // Update button tooltip
-                    gateControlBtn.setAttribute('data-tooltip', 'Đóng cổng');
-                    
-                }, 3500); // Hide after 3.5 seconds
+                }, 4200); // Updated to match 4-second animation + small buffer
             }
             
             // Always show gate animation on page load/reload
@@ -2944,7 +2920,6 @@
             
             // Gate Control Button Functionality
             function setupGateControls() {
-                const gateControlBtn = document.getElementById('gateControlBtn');
                 const gateOverlay = document.getElementById('weddingGate');
                 const gateLeft = document.getElementById('gateLeft');
                 const gateRight = document.getElementById('gateRight');
@@ -2967,8 +2942,6 @@
                     invitationContainer.style.visibility = 'hidden';
                     invitationContainer.style.pointerEvents = 'none';
                     
-                    // Update button
-                    gateControlBtn.setAttribute('data-tooltip', 'Mở cổng');
                 }
                 
                 function openGates() {
@@ -2987,8 +2960,6 @@
                         invitationContainer.style.transform = 'scale(1)';
                         invitationContainer.style.pointerEvents = 'all';
                         
-                        // Update button
-                        gateControlBtn.setAttribute('data-tooltip', 'Đóng cổng');
                     }, 2500);
                 }
                 
@@ -3029,8 +3000,6 @@
                 });
             }
             
-            // Initialize gate controls
-            setupGateControls();
             
             // Enhanced photo gallery with proper loading
             function setupPhotoGallery() {
