@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(open card_2.html)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
