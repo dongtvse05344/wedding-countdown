@@ -2,15 +2,15 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Thiệp Cưới - Đông & Uyên</title>
-    <meta name="description" content="Thiệp cưới điện tử của Hoàng Uyên và Viết Đông - 28/12/2025">
-    <meta name="keywords" content="thiệp cưới, wedding invitation, Hoàng Uyên, Viết Đông">
-    <meta property="og:title" content="Thiệp Cưới - Đông & Uyên">
-    <meta property="og:description" content="Chúng tôi sắp kết hôn! Trân trọng kính mời bạn tham dự lễ cưới của chúng tôi.">
-    <meta property="og:type" content="website">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta content="Thiệp cưới điện tử của Hoàng Uyên và Viết Đông - 28/12/2025" name="description">
+    <meta content="thiệp cưới, wedding invitation, Hoàng Uyên, Viết Đông" name="keywords">
+    <meta content="Thiệp Cưới - Đông & Uyên" property="og:title">
+    <meta content="Chúng tôi sắp kết hôn! Trân trọng kính mời bạn tham dự lễ cưới của chúng tôi." property="og:description">
+    <meta content="website" property="og:type">
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&family=Great+Vibes&display=swap');
         
@@ -40,7 +40,7 @@
             font-family: 'Inter', sans-serif;
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #dee2e6 100%);
             background-size: 400% 400%;
-            animation: gradientShift 20s ease infinite;
+            animation: gradientShift 50s ease infinite;
             min-height: 100vh;
             overflow-x: hidden;
             scroll-behavior: smooth;
@@ -62,7 +62,7 @@
             opacity: 0.06;
             z-index: -3;
             filter: blur(2px) sepia(20%) hue-rotate(10deg) brightness(1.1);
-            animation: backgroundFloat 30s ease-in-out infinite;
+            animation: backgroundFloat 60s ease-in-out infinite;
         }
         
         body::after {
@@ -79,7 +79,7 @@
             opacity: 0.04;
             z-index: -2;
             filter: blur(1.5px) sepia(15%) brightness(1.2);
-            animation: backgroundFloat 35s ease-in-out infinite reverse;
+            animation: backgroundFloat 70s ease-in-out infinite reverse;
         }
         
         @keyframes backgroundFloat {
@@ -132,24 +132,28 @@
             width: 50%;
             height: 100%;
             background: 
-                linear-gradient(90deg, 
-                    rgba(139, 69, 69, 0.1) 0%, 
-                    rgba(160, 82, 82, 0.05) 25%, 
-                    rgba(180, 100, 100, 0.1) 50%, 
-                    rgba(160, 82, 82, 0.05) 75%, 
-                    rgba(139, 69, 69, 0.1) 100%
+                linear-gradient(135deg, 
+                    rgba(139, 69, 19, 0.15) 0%, 
+                    rgba(160, 82, 45, 0.1) 25%, 
+                    rgba(180, 100, 60, 0.12) 50%, 
+                    rgba(160, 82, 45, 0.1) 75%, 
+                    rgba(139, 69, 19, 0.15) 100%
                 ),
                 url('img/wall.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            border: 3px solid #8B4545;
+            border: 1px solid rgba(101, 67, 33, 0.8);
+            border-radius: 8px;
             box-shadow: 
-                inset 0 0 30px rgba(0, 0, 0, 0.3),
-                inset 0 0 80px rgba(139, 69, 19, 0.2),
-                0 0 20px rgba(0, 0, 0, 0.5);
-            transition: transform 2.5s cubic-bezier(0.4, 0, 0.2, 1);
-            overflow: hidden;
+                inset 0 2px 4px rgba(255, 255, 255, 0.1),
+                inset 0 -2px 4px rgba(0, 0, 0, 0.2),
+                inset 2px 0 6px rgba(139, 69, 19, 0.15),
+                inset -2px 0 6px rgba(139, 69, 19, 0.15),
+                0 4px 20px rgba(0, 0, 0, 0.3),
+                0 8px 40px rgba(0, 0, 0, 0.2),
+                0 0 60px rgba(139, 69, 19, 0.1);
+            transition: all 4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         /* Wood grain effect */
@@ -183,12 +187,28 @@
         
         .gate-door-left {
             left: 0;
-            border-right: 4px solid #654321;
+            border-right: 2px solid rgba(101, 67, 33, 0.6);
+            border-top-right-radius: 12px;
+            border-bottom-right-radius: 12px;
+            box-shadow: 
+                inset 0 2px 4px rgba(255, 255, 255, 0.1),
+                inset 0 -2px 4px rgba(0, 0, 0, 0.2),
+                inset -4px 0 8px rgba(139, 69, 19, 0.2),
+                4px 0 20px rgba(0, 0, 0, 0.3),
+                8px 0 40px rgba(0, 0, 0, 0.15);
         }
         
         .gate-door-right {
             right: 0;
-            border-left: 4px solid #654321;
+            border-left: 2px solid rgba(101, 67, 33, 0.6);
+            border-top-left-radius: 12px;
+            border-bottom-left-radius: 12px;
+            box-shadow: 
+                inset 0 2px 4px rgba(255, 255, 255, 0.1),
+                inset 0 -2px 4px rgba(0, 0, 0, 0.2),
+                inset 4px 0 8px rgba(139, 69, 19, 0.2),
+                -4px 0 20px rgba(0, 0, 0, 0.3),
+                -8px 0 40px rgba(0, 0, 0, 0.15);
         }
         
         /* Wooden door panels */
@@ -208,11 +228,11 @@
         }
         
         .gate-door.sliding-left {
-            animation: slideLeftPhased 4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            animation: slideLeftPhased 6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
         }
         
         .gate-door.sliding-right {
-            animation: slideRightPhased 4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            animation: slideRightPhased 6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
         }
         
         @keyframes slideLeftPhased {
@@ -223,7 +243,7 @@
                 transform: translateX(-60%);
             }
             100% {
-                transform: translateX(-100%);
+                transform: translateX(calc(-100% - 200px));
             }
         }
         
@@ -235,7 +255,7 @@
                 transform: translateX(60%);
             }
             100% {
-                transform: translateX(100%);
+                transform: translateX(calc(100% + 200px));
             }
         }
         
@@ -340,12 +360,12 @@
             box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.6);
         }
         
-        .gate-flower-1 { top: 15%; left: 15%; animation: flowerGlow 3s ease-in-out infinite; }
-        .gate-flower-2 { top: 25%; right: 20%; animation: flowerGlow 3s ease-in-out infinite 0.5s; }
-        .gate-flower-3 { bottom: 30%; left: 25%; animation: flowerGlow 3s ease-in-out infinite 1s; }
-        .gate-flower-4 { bottom: 20%; right: 15%; animation: flowerGlow 3s ease-in-out infinite 1.5s; }
-        .gate-flower-5 { top: 45%; left: 30%; animation: flowerGlow 3s ease-in-out infinite 2s; }
-        .gate-flower-6 { top: 55%; right: 30%; animation: flowerGlow 3s ease-in-out infinite 2.5s; }
+        .gate-flower-1 { top: 15%; left: 15%; animation: flowerGlow 8s ease-in-out infinite; }
+        .gate-flower-2 { top: 25%; right: 20%; animation: flowerGlow 8s ease-in-out infinite 0.5s; }
+        .gate-flower-3 { bottom: 30%; left: 25%; animation: flowerGlow 8s ease-in-out infinite 1s; }
+        .gate-flower-4 { bottom: 20%; right: 15%; animation: flowerGlow 8s ease-in-out infinite 1.5s; }
+        .gate-flower-5 { top: 45%; left: 30%; animation: flowerGlow 8s ease-in-out infinite 2s; }
+        .gate-flower-6 { top: 55%; right: 30%; animation: flowerGlow 8s ease-in-out infinite 2.5s; }
         
         @keyframes flowerGlow {
             0%, 100% { 
@@ -375,7 +395,7 @@
             box-shadow: 
                 0 4px 12px rgba(0, 0, 0, 0.3),
                 inset 0 0 0 3px rgba(255, 255, 255, 0.2);
-            animation: characterFloat 4s ease-in-out infinite;
+            animation: characterFloat 8s ease-in-out infinite;
             z-index: 5;
         }
         
@@ -429,7 +449,7 @@
                 1px 0 3px rgba(0, 0, 0, 0.3);
             opacity: 0.8;
             z-index: 4;
-            animation: vineGrow 2s ease-out both;
+            animation: vineGrow 4s ease-out both;
         }
         
         .gate-vine-1 {
@@ -437,7 +457,7 @@
             top: 20%;
             left: 10%;
             transform: rotate(15deg);
-            animation: vineGrow 2s ease-out 0.5s both;
+            animation: vineGrow 4s ease-out 0.5s both;
         }
         
         .gate-vine-2 {
@@ -445,7 +465,7 @@
             top: 15%;
             right: 12%;
             transform: rotate(-20deg);
-            animation: vineGrow 2s ease-out 0.8s both;
+            animation: vineGrow 4s ease-out 0.8s both;
         }
         
         .gate-vine-3 {
@@ -453,7 +473,7 @@
             bottom: 10%;
             left: 20%;
             transform: rotate(25deg);
-            animation: vineGrow 2s ease-out 1.1s both;
+            animation: vineGrow 4s ease-out 1.1s both;
         }
         
         @keyframes vineGrow {
@@ -486,7 +506,7 @@
                 inset 0 1px 0 rgba(222, 184, 135, 0.4),
                 inset 0 -1px 0 rgba(101, 67, 33, 0.6);
             z-index: 5;
-            animation: handleShine 3s ease-in-out infinite;
+            animation: handleShine 6s ease-in-out infinite;
         }
         
         .gate-door-left .gate-handle {
@@ -544,6 +564,46 @@
                     0 0 10px rgba(139, 69, 19, 0.4);
             }
         }
+
+        /* Gate Lock Styling */
+        .gate-lock {
+            position: absolute;
+            top: 50%;
+            left: -75px;
+            transform: translateY(-50%);
+            z-index: 10;
+            transition: all 0.8s ease;
+            pointer-events: auto;
+        }
+
+        .gate-lock-img {
+            width: 150px;
+            height: 150px;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5))
+                    drop-shadow(0 0 12px rgba(255, 215, 0, 0.4));
+            animation: lockGlow 5s ease-in-out infinite alternate;
+        }
+
+        @keyframes lockGlow {
+            0% {
+                filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))
+                        drop-shadow(0 0 8px rgba(255, 215, 0, 0.2));
+                transform: scale(1);
+            }
+            100% {
+                filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4))
+                        drop-shadow(0 0 12px rgba(255, 215, 0, 0.4));
+                transform: scale(1.05);
+            }
+        }
+
+        /* Lock hover effect */
+        .gate-lock:hover .gate-lock-img {
+            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5))
+                    drop-shadow(0 0 16px rgba(255, 215, 0, 0.6));
+            transform: scale(1.1);
+        }
         
         /* Welcome text on gates */
         .gate-welcome {
@@ -560,7 +620,7 @@
                 3px 3px 0px rgba(0, 0, 0, 0.8),
                 0 0 10px rgba(255, 215, 0, 0.5),
                 0 0 20px rgba(255, 215, 0, 0.3);
-            animation: welcomeGlow 3s ease-in-out infinite;
+            animation: welcomeGlow 6s ease-in-out infinite;
             pointer-events: none;
             line-height: 1.1;
             letter-spacing: 2px;
@@ -606,7 +666,7 @@
             height: 4px;
             background: #FFD700;
             border-radius: 50%;
-            animation: gateSparkle 2s ease-out infinite;
+            animation: gateSparkle 5s ease-out infinite;
             pointer-events: none;
         }
         
@@ -678,6 +738,8 @@
                 border-width: 2px;
             }
             
+
+            
         }
         
         /* Remove conflicting animations */
@@ -705,10 +767,10 @@
             overflow: hidden;
             position: relative;
             min-height: 100vh;
-            opacity: 0;
-            transform: scale(0.9);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-            visibility: hidden;
+            /*opacity: 0;*/
+            /*transform: scale(0.9);*/
+            transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+            /*visibility: hidden;*/
         }
         
         .invitation-container.visible {
@@ -719,16 +781,16 @@
         
         /* Ensure invitation is completely hidden on load */
         .invitation-container:not(.visible) {
-            opacity: 0 !important;
-            visibility: hidden !important;
-            pointer-events: none;
+            /*opacity: 0 !important;*/
+            /*visibility: hidden !important;*/
+            /*pointer-events: none;*/
         }
         
         @keyframes revealInvitation {
-            0% {
-                opacity: 0;
-                transform: scale(0.9);
-            }
+            /*0% {*/
+            /*    opacity: 0;*/
+            /*    transform: scale(0.9);*/
+            /*}*/
             100% {
                 opacity: 1;
                 transform: scale(1);
@@ -736,10 +798,10 @@
         }
         
         @keyframes slideInFromTop {
-            0% {
-                opacity: 0;
-                transform: translateY(-50px) scale(0.95);
-            }
+            /*0% {*/
+            /*    opacity: 0;*/
+            /*    transform: translateY(-50px) scale(0.95);*/
+            /*}*/
             100% {
                 opacity: 1;
                 transform: translateY(0) scale(1);
@@ -773,7 +835,7 @@
             opacity: 0.08;
             z-index: -1;
             filter: blur(2px) sepia(25%) brightness(1.3) contrast(0.9);
-            animation: heroImageFloat 25s ease-in-out infinite;
+            animation: heroImageFloat 45s ease-in-out infinite;
         }
         
         .hero-section::after {
@@ -790,7 +852,7 @@
             opacity: 0.05;
             z-index: -1;
             filter: blur(1px) sepia(20%) brightness(1.2);
-            animation: heroImageFloat 20s ease-in-out infinite reverse;
+            animation: heroImageFloat 40s ease-in-out infinite reverse;
         }
         
         @keyframes heroImageFloat {
@@ -803,6 +865,69 @@
                 opacity: 0.08;
             }
         }
+
+        /* Hero Main Image Styles */
+        .hero-image-container {
+            position: relative;
+            margin: 30px auto 0;
+            max-width: 500px;
+            width: 90%;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.2),
+                0 20px 60px rgba(0, 0, 0, 0.1),
+                0 0 0 1px rgba(255, 255, 255, 0.1);
+            animation: heroImageGlow 8s ease-in-out infinite alternate;
+        }
+
+        .hero-main-image {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.8s ease;
+        }
+
+        .hero-image-container:hover .hero-main-image {
+            transform: scale(1.05);
+        }
+
+        .hero-image-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            padding: 30px 20px 20px;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-love-quote {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1em;
+            font-style: italic;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            line-height: 1.4;
+        }
+
+        @keyframes heroImageGlow {
+            0% {
+                box-shadow: 
+                    0 10px 30px rgba(0, 0, 0, 0.2),
+                    0 20px 60px rgba(0, 0, 0, 0.1),
+                    0 0 0 1px rgba(255, 255, 255, 0.1);
+            }
+            100% {
+                box-shadow: 
+                    0 15px 40px rgba(0, 0, 0, 0.3),
+                    0 25px 80px rgba(0, 0, 0, 0.15),
+                    0 0 0 1px rgba(255, 255, 255, 0.2),
+                    0 0 30px rgba(255, 182, 193, 0.3);
+            }
+        }
         
         .hero-background {
             position: absolute;
@@ -812,7 +937,7 @@
             height: 100%;
             background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="hearts" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><text x="20" y="30" font-size="20" fill="rgba(255,182,193,0.1)">♥</text><text x="70" y="70" font-size="15" fill="rgba(255,182,193,0.08)">♥</text></pattern></defs><rect width="100%" height="100%" fill="url(%23hearts)"/></svg>');
             opacity: 0.3;
-            animation: float 20s ease-in-out infinite;
+            animation: float 40s ease-in-out infinite;
         }
         
         .date-badge {
@@ -858,7 +983,7 @@
             margin: 20px 0;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
             position: relative;
-            animation: titleGlow 4s ease-in-out infinite alternate;
+            animation: titleGlow 8s ease-in-out infinite alternate;
         }
         
         @keyframes titleGlow {
@@ -938,8 +1063,8 @@
             padding: 20px 15px;
             border-radius: 15px;
             box-shadow: 0 10px 25px rgba(214, 51, 132, 0.3);
-            transition: all 0.3s ease;
-            animation: countdownPulse 2s ease-in-out infinite;
+            transition: all 0.8s ease;
+            animation: countdownPulse 4s ease-in-out infinite;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -965,8 +1090,8 @@
             padding: 15px 10px;
             border-radius: 12px;
             box-shadow: 0 8px 20px rgba(214, 51, 132, 0.3);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            animation: countdownPulse 2s ease-in-out infinite;
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: countdownPulse 4s ease-in-out infinite;
             min-height: 70px;
             display: flex;
             flex-direction: column;
@@ -1097,7 +1222,7 @@
             background: rgba(214, 51, 132, 0.2);
             border-radius: 50%;
             transform: translate(-50%, -50%);
-            transition: all 0.3s ease;
+            transition: all 0.8s ease;
         }
         
         .calendar-day:hover::before {
@@ -1111,7 +1236,7 @@
             font-size: 0.85em;
             color: #6c757d;
             border-radius: 6px;
-            transition: all 0.3s ease;
+            transition: all 0.8s ease;
             cursor: pointer;
             min-height: 28px;
             display: flex;
@@ -1190,7 +1315,7 @@
             border-radius: 20px;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
             border: 1px solid rgba(255, 182, 193, 0.2);
-            transition: all 0.4s ease;
+            transition: all 0.8s ease;
             position: relative;
             overflow: hidden;
         }
@@ -1250,7 +1375,7 @@
             margin: 0 auto 15px;
             display: block;
             border: 3px solid rgba(214, 51, 132, 0.3);
-            transition: all 0.3s ease;
+            transition: all 0.8s ease;
         }
         
         .person-avatar:hover {
@@ -1291,7 +1416,7 @@
             color: #d63384;
             text-decoration: none;
             font-weight: 500;
-            transition: all 0.3s ease;
+            transition: all 0.8s ease;
             display: inline-block;
             padding: 5px 10px;
             border-radius: 15px;
@@ -1416,7 +1541,7 @@
             border-radius: 12px;
             background: rgba(214, 51, 132, 0.1);
             margin-left: 8px;
-            transition: all 0.3s ease;
+            transition: all 0.8s ease;
             display: inline-block;
         }
         
@@ -1440,7 +1565,7 @@
             border-radius: 8px;
             margin-top: 0;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
+            transition: all 0.8s ease;
         }
         
         .embedded-map:hover {
@@ -1469,7 +1594,7 @@
             font-size: 0.9em;
             cursor: pointer;
             margin-top: 10px;
-            transition: all 0.3s ease;
+            transition: all 0.8s ease;
             display: flex;
             align-items: center;
             gap: 5px;
@@ -1636,7 +1761,7 @@
             border-radius: 20px;
             object-fit: cover;
             border: 3px solid rgba(214, 51, 132, 0.3);
-            transition: all 0.3s ease;
+            transition: all 0.8s ease;
             animation: photoGlow 4s ease-in-out infinite alternate;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
         }
@@ -1787,7 +1912,7 @@
             width: 100%;
             height: 250px;
             object-fit: cover;
-            transition: all 0.4s ease;
+            transition: all 0.8s ease;
             filter: brightness(1) saturate(1);
             opacity: 1;
             display: block;
@@ -1810,7 +1935,7 @@
             height: 100%;
             background: linear-gradient(135deg, rgba(214, 51, 132, 0.7), rgba(231, 76, 60, 0.5));
             opacity: 0;
-            transition: all 0.4s ease;
+            transition: all 0.8s ease;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1850,7 +1975,7 @@
             font-size: 1.3em;
             text-align: center;
             transform: translateY(100%);
-            transition: all 0.4s ease;
+            transition: all 0.8s ease;
         }
         
         .photo-item:hover .photo-caption {
@@ -2199,7 +2324,7 @@
         .scroll-indicator {
             position: relative;
             margin: 30px auto 0;
-            animation: bounce 2s infinite;
+            animation: bounce 4s infinite;
             color: #d63384;
             font-size: 1.5em;
             cursor: pointer;
@@ -2210,6 +2335,131 @@
             0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
             40% { transform: translateY(-10px); }
             60% { transform: translateY(-5px); }
+        }
+
+        /* Gate Control Button */
+        .gate-control-btn {
+            position: relative;
+            margin: 20px auto 0;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #8B4513 0%, #A0522D 50%, #8B4513 100%);
+            border: 2px solid #654321;
+            border-radius: 25px;
+            color: #FFFFFF;
+            font-family: 'Playfair Display', serif;
+            font-size: 0.9em;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.8s ease;
+            box-shadow: 
+                0 4px 15px rgba(139, 69, 19, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            animation: gateButtonGlow 6s ease-in-out infinite alternate;
+        }
+
+        .gate-control-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 
+                0 6px 20px rgba(139, 69, 19, 0.6),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            background: linear-gradient(135deg, #A0522D 0%, #CD853F 50%, #A0522D 100%);
+        }
+
+        .gate-control-btn:active {
+            transform: translateY(0);
+            box-shadow: 
+                0 2px 8px rgba(139, 69, 19, 0.6),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .gate-icon {
+            font-size: 1.2em;
+        }
+
+        .gate-text {
+            white-space: nowrap;
+        }
+
+        @keyframes gateButtonGlow {
+            0% {
+                box-shadow: 
+                    0 4px 15px rgba(139, 69, 19, 0.4),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            }
+            100% {
+                box-shadow: 
+                    0 4px 15px rgba(139, 69, 19, 0.6),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+                    0 0 20px rgba(255, 215, 0, 0.3);
+            }
+        }
+
+        /* Heart Rain Animation */
+        .heart-rain {
+            position: fixed;
+            top: -50px;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 1000;
+            overflow: hidden;
+        }
+
+        .falling-heart {
+            position: absolute;
+            font-size: 20px;
+            color: #ff69b4;
+            animation: heartFall linear forwards;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .falling-heart.large {
+            font-size: 28px;
+            color: #ff1493;
+        }
+
+        .falling-heart.small {
+            font-size: 14px;
+            color: #ffb6c1;
+        }
+
+        .falling-heart.gold {
+            color: #ffd700;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        @keyframes heartFall {
+            0% {
+                transform: translateY(-50px) rotate(0deg);
+                opacity: 1;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes heartSway {
+            0%, 100% {
+                transform: translateX(0px);
+            }
+            25% {
+                transform: translateX(-10px);
+            }
+            75% {
+                transform: translateX(10px);
+            }
         }
         
         @media (max-width: 500px) {
@@ -2476,14 +2726,15 @@
             <div class="gate-door gate-door-left" id="gateLeft">
                 <div class="gate-character gate-character-bb1"></div>
                 <div class="gate-handle"></div>
-                <div class="gate-welcome">Welcome</div>
             </div>
             
             <!-- Right Gate Door -->
             <div class="gate-door gate-door-right" id="gateRight">
                 <div class="gate-character gate-character-dd1"></div>
                 <div class="gate-handle"></div>
-                <div class="gate-welcome">Our<br>Wedding</div>
+                <div class="gate-lock">
+                    <img alt="Gate Lock" class="gate-lock-img" src="img/lock.png">
+                </div>
             </div>
         </div>
     </div>
@@ -2498,7 +2749,7 @@
         </div>
     </div>
     
-    <div class="invitation-container" style="opacity: 0; visibility: hidden; transform: scale(0.9); pointer-events: none;">
+    <div class="invitation-container">
         <!-- Hero Section -->
         <div class="hero-section">
             <div class="hero-background"></div>
@@ -2511,21 +2762,38 @@
             <div class="couple-names" id="coupleNames">Hoàng Uyên & Viết Đông</div>
             <div class="wedding-date">Chúng tôi sắp kết hôn</div>
             
-            <button class="scroll-indicator" aria-label="Cuộn xuống để xem nội dung" title="Cuộn xuống">↓</button>
+            <button aria-label="Cuộn xuống để xem nội dung" class="scroll-indicator" title="Cuộn xuống">↓</button>
             
-            <!-- Countdown Timer -->
-            <div class="countdown-section" role="region" aria-label="Đếm ngược thời gian">
+            <button class="gate-control-btn" id="gateControlBtn" title="Đóng/Mở cổng">
+                <span class="gate-icon">🚪</span>
+                <span class="gate-text">Đóng cổng</span>
+            </button>
+            
+            <!-- Hero Image -->
+            <div class="hero-image-container">
+                <img alt="Ảnh cưới lãng mạn của cô dâu Hoàng Uyên và chú rể Viết Đông" class="hero-main-image" loading="lazy" src="img/0.jpg">
+                <div class="hero-image-overlay">
+                    <div class="hero-love-quote">
+                        "Tình yêu không chỉ là nhìn vào mắt nhau, mà là cùng nhìn về một hướng"
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <!-- Countdown Timer Section -->
+            <div aria-label="Đếm ngược thời gian" class="countdown-section" role="region">
                 <div class="countdown-title">Đếm ngược đến ngày trọng đại</div>
-                <div class="countdown-timer" id="countdown" role="timer" aria-live="polite">
+                <div aria-live="polite" class="countdown-timer" id="countdown" role="timer">
                     <div class="countdown-item">
-                        <div class="countdown-box" tabindex="0" role="button" aria-label="Ngày còn lại">
-                            <span class="countdown-number" id="days" aria-label="Số ngày">00</span>
+                        <div aria-label="Ngày còn lại" class="countdown-box" role="button" tabindex="0">
+                            <span aria-label="Số ngày" class="countdown-number" id="days">00</span>
                             <span class="countdown-label">Ngày</span>
                         </div>
                     </div>
                     <div class="countdown-item">
-                        <div class="countdown-box" tabindex="0" role="button" aria-label="Giờ còn lại">
-                            <span class="countdown-number" id="hours" aria-label="Số giờ">00</span>
+                        <div aria-label="Giờ còn lại" class="countdown-box" role="button" tabindex="0">
+                            <span aria-label="Số giờ" class="countdown-number" id="hours">00</span>
                             <span class="countdown-label">Giờ</span>
                         </div>
                     </div>
@@ -2608,12 +2876,10 @@
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <div class="content">
+
             <!-- Couple Photo Section -->
             <div class="couple-photo-section scroll-animate animate-from-left">
-                <img src="img/0.jpg" alt="Ảnh cưới lãng mạn của cô dâu Hoàng Uyên và chú rể Viết Đông" class="couple-photo" loading="lazy">
+                <img alt="Ảnh cưới lãng mạn của cô dâu Hoàng Uyên và chú rể Viết Đông" class="couple-photo" loading="lazy" src="img/0.jpg">
                 <div class="love-quote">
                     "Tình yêu không chỉ là nhìn vào mắt nhau, mà là cùng nhìn về một hướng"
                 </div>
@@ -2625,7 +2891,7 @@
                 <div class="family-side scroll-animate animate-from-left stagger-1">
                     <h3 class="family-title">♂ Nhà Trai</h3>
                     <div class="person-info">
-                        <img src="img/dd1.jpg" alt="Ảnh chân dung chú rể Trần Viết Đông" class="person-avatar" loading="lazy">
+                        <img alt="Ảnh chân dung chú rể Trần Viết Đông" class="person-avatar" loading="lazy" src="img/dd1.jpg">
                         <div class="person-name">Trần Viết Đông</div>
                     </div>
                     <div class="person-info">
@@ -2634,14 +2900,14 @@
                     </div>
                     <div class="address">
                         📍 Bến xe Điền Linh<br>Tân Hà Lâm Hà, Lâm Đồng<br>
-                        <a href="https://maps.app.goo.gl/AAVkR1VWQNPDf8LA9" target="_blank" class="map-link">Xem bản đồ</a>
+                        <a class="map-link" href="https://maps.app.goo.gl/AAVkR1VWQNPDf8LA9" target="_blank">Xem bản đồ</a>
                     </div>
                 </div>
                 
                 <div class="family-side scroll-animate animate-from-right stagger-2">
                     <h3 class="family-title">♀ Nhà Gái</h3>
                     <div class="person-info">
-                        <img src="img/bb1.jpg" alt="Ảnh chân dung cô dâu Võ Nguyễn Hoàng Uyên" class="person-avatar" loading="lazy">
+                        <img alt="Ảnh chân dung cô dâu Võ Nguyễn Hoàng Uyên" class="person-avatar" loading="lazy" src="img/bb1.jpg">
                         <div class="person-name">Võ Nguyễn Hoàng Uyên</div>
                     </div>
                     <div class="person-info">
@@ -2650,7 +2916,7 @@
                     </div>
                     <div class="address">
                         📍 25 Huyền Trân Công Chúa<br>Phường 4, Đà Lạt, Lâm Đồng<br>
-                        <a href="https://maps.app.goo.gl/p4dQTXYQYy4Eq3eQ9" target="_blank" class="map-link">Xem bản đồ</a>
+                        <a class="map-link" href="https://maps.app.goo.gl/p4dQTXYQYy4Eq3eQ9" target="_blank">Xem bản đồ</a>
                     </div>
                 </div>
             </div>
@@ -2660,7 +2926,7 @@
                 <h2 class="gallery-title">Album Cưới</h2>
                 <div class="photo-grid">
                     <div class="photo-item featured">
-                        <img src="img/1.jpg" alt="Trang trí tiệc cưới truyền thống với sắc đỏ" loading="lazy">
+                        <img alt="Trang trí tiệc cưới truyền thống với sắc đỏ" loading="lazy" src="img/1.jpg">
                         <div class="photo-overlay">
                             <span>Trang trí truyền thống</span>
                         </div>
@@ -2670,7 +2936,7 @@
                     </div>
                     
                     <div class="photo-item">
-                        <img src="img/2.jpg" alt="Tiệc cưới vui vẻ với bạn bè" loading="lazy">
+                        <img alt="Tiệc cưới vui vẻ với bạn bè" loading="lazy" src="img/2.jpg">
                         <div class="photo-overlay">
                             <span>Khoảnh khắc vui vẻ</span>
                         </div>
@@ -2680,7 +2946,7 @@
                     </div>
                     
                     <div class="photo-item">
-                        <img src="img/3.jpg" alt="Lễ cưới bên bờ biển" loading="lazy">
+                        <img alt="Lễ cưới bên bờ biển" loading="lazy" src="img/3.jpg">
                         <div class="photo-overlay">
                             <span>Lễ cưới bên biển</span>
                         </div>
@@ -2690,7 +2956,7 @@
                     </div>
                     
                     <div class="photo-item">
-                        <img src="img/4.jpg" alt="Ảnh cưới hiện đại" loading="lazy">
+                        <img alt="Ảnh cưới hiện đại" loading="lazy" src="img/4.jpg">
                         <div class="photo-overlay">
                             <span>Phong cách hiện đại</span>
                         </div>
@@ -2700,7 +2966,7 @@
                     </div>
                     
                     <div class="photo-item">
-                        <img src="img/wall.jpg" alt="Ảnh cưới kiến trúc độc đáo" loading="lazy">
+                        <img alt="Ảnh cưới kiến trúc độc đáo" loading="lazy" src="img/wall.jpg">
                         <div class="photo-overlay">
                             <span>Kiến trúc độc đáo</span>
                         </div>
@@ -2722,15 +2988,15 @@
                                 <div class="time-info">⏰ 07:00 - Thứ bảy, 28/12/2025</div>
                                 <div style="margin: 8px 0; color: #6c757d;">📅 Ngày 10 tháng 11 năm Ất Tỵ</div>
                                 <div class="location-info">📍 25 Huyền Trân Công Chúa, P4, Đà Lạt, Lâm Đồng
-                                    <a href="https://maps.app.goo.gl/p4dQTXYQYy4Eq3eQ9" target="_blank" class="ceremony-map-link">Bản đồ</a>
+                                    <a class="ceremony-map-link" href="https://maps.app.goo.gl/p4dQTXYQYy4Eq3eQ9" target="_blank">Bản đồ</a>
                                 </div>
                             </div>
                             <div class="map-container">
-                                <iframe class="embedded-map" 
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3902.8507!2d108.4418!3d11.9430!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317112fdb03e35bf%3A0x8e4e9fd8e7cdb5ad!2s25%20Huy%E1%BB%81n%20Tr%C3%A2n%20C%C3%B4ng%20Ch%C3%BAa%2C%20Ph%C6%B0%E1%BB%9Dng%204%2C%20Th%C3%A0nh%20ph%E1%BB%91%20%C4%90%C3%A0%20L%E1%BA%A1t%2C%20L%C3%A2m%20%C4%90%E1%BB%93ng%2C%20Vietnam!5e0!3m2!1sen!2s!4v1640995200000!5m2!1sen!2s" 
-                                    allowfullscreen="" 
-                                    loading="lazy" 
-                                    referrerpolicy="no-referrer-when-downgrade">
+                                <iframe allowfullscreen=""
+                                    class="embedded-map"
+                                    loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3902.8507!2d108.4418!3d11.9430!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317112fdb03e35bf%3A0x8e4e9fd8e7cdb5ad!2s25%20Huy%E1%BB%81n%20Tr%C3%A2n%20C%C3%B4ng%20Ch%C3%BAa%2C%20Ph%C6%B0%E1%BB%9Dng%204%2C%20Th%C3%A0nh%20ph%E1%BB%91%20%C4%90%C3%A0%20L%E1%BA%A1t%2C%20L%C3%A2m%20%C4%90%E1%BB%93ng%2C%20Vietnam!5e0!3m2!1sen!2s!4v1640995200000!5m2!1sen!2s">
                                 </iframe>
                             </div>
                         </div>
@@ -2743,11 +3009,11 @@
                                 <div class="time-info">⏰ 16:30 - Thứ sáu, 27/12/2025</div>
                                 <div style="margin: 8px 0; color: #6c757d;">📅 Ngày 9 tháng 11 năm Ất Tỵ</div>
                                 <div class="location-info">📍 Ana Mandara Villas Dalat Resort
-                                    <a href="https://maps.app.goo.gl/R4nCXxEaBJThVNQi6" target="_blank" class="ceremony-map-link">Bản đồ</a>
+                                    <a class="ceremony-map-link" href="https://maps.app.goo.gl/R4nCXxEaBJThVNQi6" target="_blank">Bản đồ</a>
                                 </div>
                             </div>
                             <div class="map-container">
-                               <iframe class="embedded-map" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3903.439485779722!2d108.4210251!3d11.9440442!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31716cd40cc0684b%3A0x6b9892057c05b737!2sAna%20Mandara%20Villas%20Dalat%20Resort%20%26%20Spa!5e0!3m2!1svi!2ssg!4v1760083379071!5m2!1svi!2ssg" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                               <iframe allowfullscreen="" class="embedded-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3903.439485779722!2d108.4210251!3d11.9440442!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31716cd40cc0684b%3A0x6b9892057c05b737!2sAna%20Mandara%20Villas%20Dalat%20Resort%20%26%20Spa!5e0!3m2!1svi!2ssg!4v1760083379071!5m2!1svi!2ssg"></iframe>
                             </div>
                         </div>
                     </div>
@@ -2764,11 +3030,11 @@
                                 <div class="time-info">⏰ 10:00 - Thứ bảy, 28/12/2025</div>
                                 <div style="margin: 8px 0; color: #6c757d;">📅 Ngày 10 tháng 11 năm Ất Tỵ</div>
                                 <div class="location-info">📍 Bến xe Điền Linh, Tân Hà Lâm Hà, Lâm Đồng
-                                    <a href="https://maps.app.goo.gl/AAVkR1VWQNPDf8LA9" target="_blank" class="ceremony-map-link">Bản đồ</a>
+                                    <a class="ceremony-map-link" href="https://maps.app.goo.gl/AAVkR1VWQNPDf8LA9" target="_blank">Bản đồ</a>
                                 </div>
                             </div>
                             <div class="map-container">
-                                <iframe class="embedded-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3906.2401379241533!2d108.20434709999999!3d11.7481258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31715c9d10088e67%3A0xcce870d91e56e99e!2zVsSDbiBQaG_MgG5nIFhlIMSQaeG7gW4gTGluaCBUw6JuIEjDoA!5e0!3m2!1svi!2ssg!4v1760083424803!5m2!1svi!2ssg" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                <iframe allowfullscreen="" class="embedded-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3906.2401379241533!2d108.20434709999999!3d11.7481258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31715c9d10088e67%3A0xcce870d91e56e99e!2zVsSDbiBQaG_MgG5nIFhlIMSQaeG7gW4gTGluaCBUw6JuIEjDoA!5e0!3m2!1svi!2ssg!4v1760083424803!5m2!1svi!2ssg"></iframe>
                             </div>
                         </div>
                     </div>
@@ -2780,11 +3046,11 @@
                                 <div class="time-info">⏰ 11:00 - Thứ bảy, 28/12/2025</div>
                                 <div style="margin: 8px 0; color: #6c757d;">📅 Ngày 10 tháng 11 năm Ất Tỵ</div>
                                 <div class="location-info">📍 Bến xe Điền Linh, Tân Hà Lâm Hà, Lâm Đồng
-                                    <a href="https://maps.app.goo.gl/AAVkR1VWQNPDf8LA9" target="_blank" class="ceremony-map-link">Bản đồ</a>
+                                    <a class="ceremony-map-link" href="https://maps.app.goo.gl/AAVkR1VWQNPDf8LA9" target="_blank">Bản đồ</a>
                                 </div>
                             </div>
                             <div class="map-container">
-                               <iframe class="embedded-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3906.2401379241533!2d108.20434709999999!3d11.7481258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31715c9d10088e67%3A0xcce870d91e56e99e!2zVsSDbiBQaG_MgG5nIFhlIMSQaeG7gW4gTGluaCBUw6JuIEjDoA!5e0!3m2!1svi!2ssg!4v1760083424803!5m2!1svi!2ssg" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                               <iframe allowfullscreen="" class="embedded-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3906.2401379241533!2d108.20434709999999!3d11.7481258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31715c9d10088e67%3A0xcce870d91e56e99e!2zVsSDbiBQaG_MgG5nIFhlIMSQaeG7gW4gTGluaCBUw6JuIEjDoA!5e0!3m2!1svi!2ssg!4v1760083424803!5m2!1svi!2ssg"></iframe>
                             </div>
                         </div>
                     </div>
@@ -2802,7 +3068,7 @@
         </div>
         
         <!-- Back to Top Button -->
-        <button class="back-to-top" id="backToTop" aria-label="Trở về đầu trang" title="Trở về đầu trang">
+        <button aria-label="Trở về đầu trang" class="back-to-top" id="backToTop" title="Trở về đầu trang">
             ↑
         </button>
     </div>
@@ -2829,15 +3095,15 @@
                 gateOverlay.style.pointerEvents = 'all';
                 
                 // Ensure invitation is completely hidden initially
-                const invitationContainer = document.querySelector('.invitation-container');
-                if (invitationContainer) {
-                    invitationContainer.classList.remove('visible');
-                    invitationContainer.style.opacity = '0';
-                    invitationContainer.style.visibility = 'hidden';
-                    invitationContainer.style.transform = 'scale(0.9)';
-                    invitationContainer.style.pointerEvents = 'none';
-                }
-                
+                // const invitationContainer = document.querySelector('.invitation-container');
+                // if (invitationContainer) {
+                //     invitationContainer.classList.remove('visible');
+                //     invitationContainer.style.opacity = '0';
+                //     invitationContainer.style.visibility = 'hidden';
+                //     invitationContainer.style.transform = 'scale(0.9)';
+                //     invitationContainer.style.pointerEvents = 'none';
+                // }
+                //
                 // Create sparkle effects
                 function createGateSparkles() {
                     for (let i = 0; i < 20; i++) {
@@ -2936,11 +3202,11 @@
                     gateLeft.classList.remove('sliding-left');
                     gateRight.classList.remove('sliding-right');
                     
-                    // Hide invitation completely
-                    invitationContainer.classList.remove('visible');
-                    invitationContainer.style.opacity = '0';
-                    invitationContainer.style.visibility = 'hidden';
-                    invitationContainer.style.pointerEvents = 'none';
+                    // // Hide invitation completely
+                    // invitationContainer.classList.remove('visible');
+                    // invitationContainer.style.opacity = '0';
+                    // invitationContainer.style.visibility = 'hidden';
+                    // invitationContainer.style.pointerEvents = 'none';
                     
                 }
                 
@@ -3000,6 +3266,75 @@
                 });
             }
             
+            // Setup the new gate control button
+            function setupNewGateControl() {
+                const gateControlBtn = document.getElementById('gateControlBtn');
+                const gateOverlay = document.getElementById('weddingGate');
+                const gateLeft = document.getElementById('gateLeft');
+                const gateRight = document.getElementById('gateRight');
+                const invitationContainer = document.querySelector('.invitation-container');
+                let isGatesClosed = false;
+                
+                function closeGates() {
+                    isGatesClosed = true;
+                    gateOverlay.style.display = 'block';
+                    gateOverlay.classList.remove('hidden');
+                    gateOverlay.style.opacity = '1';
+                    gateOverlay.style.pointerEvents = 'all';
+                    
+                    gateLeft.classList.remove('sliding-left');
+                    gateRight.classList.remove('sliding-right');
+                    
+                    invitationContainer.style.opacity = '0';
+                    invitationContainer.style.visibility = 'hidden';
+                    invitationContainer.style.transform = 'scale(0.9)';
+                    invitationContainer.style.pointerEvents = 'none';
+                    
+                    // Update button text
+                    gateControlBtn.querySelector('.gate-text').textContent = 'Mở cổng';
+                }
+                
+                function openGates() {
+                    isGatesClosed = false;
+                    gateLeft.classList.add('sliding-left');
+                    gateRight.classList.add('sliding-right');
+                    
+                    setTimeout(() => {
+                        gateOverlay.classList.add('hidden');
+                        invitationContainer.style.opacity = '1';
+                        invitationContainer.style.visibility = 'visible';
+                        invitationContainer.style.transform = 'scale(1)';
+                        invitationContainer.style.pointerEvents = 'all';
+                    }, 1000);
+                    
+                    // Update button text
+                    gateControlBtn.querySelector('.gate-text').textContent = 'Đóng cổng';
+                }
+                
+                gateControlBtn.addEventListener('click', function() {
+                    if (isGatesClosed) {
+                        openGates();
+                    } else {
+                        closeGates();
+                    }
+                    
+                    // Add vibration for mobile
+                    if ('vibrate' in navigator) {
+                        navigator.vibrate(100);
+                    }
+                });
+                
+                // Add keyboard support
+                gateControlBtn.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        this.click();
+                    }
+                });
+            }
+            
+            // Initialize gate control
+            setupNewGateControl();
             
             // Enhanced photo gallery with proper loading
             function setupPhotoGallery() {
@@ -3428,6 +3763,78 @@
             setInterval(createFloatingHeart, 4000);
             setInterval(createLeaf, 1500);
             
+            // Random heart rain - triggers every 15-45 seconds
+            function scheduleRandomHeartRain() {
+                const randomDelay = 15000 + Math.random() * 30000; // 15-45 seconds
+                setTimeout(() => {
+                    createHeartRain();
+                    scheduleRandomHeartRain(); // Schedule the next one
+                }, randomDelay);
+            }
+            
+            // Start the random heart rain after initial delay
+            setTimeout(() => {
+                scheduleRandomHeartRain();
+            }, 10000); // Wait 10 seconds before first heart rain
+            
+            // Heart Rain Function
+            function createHeartRain() {
+                const heartRainContainer = document.createElement('div');
+                heartRainContainer.className = 'heart-rain';
+                document.body.appendChild(heartRainContainer);
+                
+                // Create multiple hearts
+                const heartCount = 30;
+                const heartSymbols = ['♥', '💖', '💗', '💕', '💝', '❤️'];
+                
+                for (let i = 0; i < heartCount; i++) {
+                    setTimeout(() => {
+                        const heart = document.createElement('div');
+                        heart.className = 'falling-heart';
+                        
+                        // Random heart symbol
+                        heart.textContent = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+                        
+                        // Random position across screen width
+                        heart.style.left = Math.random() * 100 + 'vw';
+                        
+                        // Random size class
+                        const sizeClasses = ['small', 'large', 'gold'];
+                        if (Math.random() < 0.3) {
+                            heart.classList.add(sizeClasses[Math.floor(Math.random() * sizeClasses.length)]);
+                        }
+                        
+                        // Random animation duration (2-4 seconds)
+                        const duration = 2 + Math.random() * 2;
+                        heart.style.animationDuration = duration + 's';
+                        
+                        // Add slight horizontal sway
+                        if (Math.random() < 0.5) {
+                            heart.style.animationName = 'heartFall, heartSway';
+                            heart.style.animationDuration = duration + 's, 1s';
+                            heart.style.animationIterationCount = '1, infinite';
+                        }
+                        
+                        heartRainContainer.appendChild(heart);
+                        
+                        // Remove heart after animation
+                        setTimeout(() => {
+                            if (heart.parentNode) {
+                                heart.parentNode.removeChild(heart);
+                            }
+                        }, duration * 1000 + 500);
+                        
+                    }, i * 100); // Stagger heart creation
+                }
+                
+                // Remove container after all hearts are done
+                setTimeout(() => {
+                    if (heartRainContainer.parentNode) {
+                        heartRainContainer.parentNode.removeChild(heartRainContainer);
+                    }
+                }, 5000);
+            }
+            
             // Continuous typewriter effect for couple names
             let typewriterRunning = false;
             let typewriterTimeout;
@@ -3586,7 +3993,7 @@
                     // Add pulse effect
                     this.style.animation = 'none';
                     setTimeout(() => {
-                        this.style.animation = 'countdownPulse 2s ease-in-out infinite';
+                        this.style.animation = 'countdownPulse 4s ease-in-out infinite';
                     }, 10);
                     
                     // Create mini celebration
