@@ -1673,16 +1673,13 @@
       }
 
       .ceremony-section {
-        margin: 60px 0;
-        padding: 40px;
-        background: linear-gradient(
-          135deg,
-          rgba(255, 255, 255, 0.9),
-          rgba(248, 249, 250, 0.9)
-        );
-        border-radius: 25px;
-        border: 1px solid rgba(214, 51, 132, 0.1);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+        margin: 10px 0;
+        /* flatter look: remove card background, border and shadow */
+        padding: 10px 0 0 0;
+        background: transparent;
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
       }
 
       .ceremony-title {
@@ -1690,7 +1687,6 @@
         font-size: 2em;
         color: #d63384;
         text-align: center;
-        margin-bottom: 35px;
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 2px;
@@ -1702,47 +1698,177 @@
         gap: 25px;
       }
 
+      /* New ceremony layout matching the design */
+      .ceremony-details {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        align-items: start;
+      }
+
       .ceremony-item {
-        background: rgba(255, 255, 255, 0.9);
-        padding: 25px;
-        border-radius: 15px;
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
-        /* Reserve space for decorative left accent to avoid layout shift on hover */
-        border-left: 8px solid transparent;
-        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
-          box-shadow 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
-          background 0.4s ease, border-left-color 0.4s ease;
-        cursor: pointer;
-        position: relative;
-        overflow: hidden;
+        background: transparent;
+        border: none;
+        padding: 20px;
+        text-align: center;
       }
 
-      .ceremony-item::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          rgba(255, 255, 255, 0.8),
-          transparent
-        );
-        transition: left 0.8s ease;
+      .ceremony-title-text {
+        font-family: "Playfair Display", serif;
+        color: #d63384;
+        font-size: 1.4em;
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 15px;
+        letter-spacing: 0.5px;
       }
 
-      .ceremony-item:hover::before {
-        left: 100%;
+      .ceremony-info {
+        display: flex;
+        gap: 0;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: nowrap;
+        margin-bottom: 8px;
       }
 
-      .ceremony-item:hover {
-        transform: translateX(15px) scale(1.02);
-        box-shadow: 0 20px 40px rgba(214, 51, 132, 0.2);
-        background: rgba(255, 255, 255, 1);
-        /* Change color only to avoid resizing/layout shift */
-        border-left-color: #d63384;
+      .time-badge-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 0;
+      }
+
+      .time-badge {
+        text-align: center;
+        padding: 8px 36px;
+        border-radius: 0;
+        border: none;
+        border-left: 3px solid #000;
+        border-right: 3px solid #000;
+        background: transparent;
+        min-width: 160px;
+      }
+
+      .time-badge .time {
+        font-size: 1em;
+        color: #111;
+        margin-bottom: 4px;
+      }
+
+      .time-badge .day-number {
+        font-size: 4.4em;
+        font-weight: 700;
+        line-height: 1;
+        margin: 6px 0;
+      }
+
+      .time-badge .month {
+        font-size: 1em;
+        color: #333;
+        margin-top: 4px;
+      }
+
+      .weekday-left {
+        font-size: 1.1em;
+        color: #111;
+        text-align: left;
+        margin-right: 20px;
+        min-width: 80px;
+      }
+
+      .year-right {
+        font-size: 1.1em;
+        color: #111;
+        text-align: left;
+        margin-left: 20px;
+        min-width: 90px;
+      }
+
+      .time-badge-sep-left,
+      .time-badge-sep-right {
+        width: 3px;
+        background: #000;
+        height: 180px;
+        display: inline-block;
+        vertical-align: middle;
+        border-radius: 1px;
+        margin: 0 20px;
+      }
+
+      .lunar-note {
+        margin: 12px 0 20px 0;
+        font-style: italic;
+        color: #6c757d;
+        font-size: 0.95em;
+        text-align: center;
+      }
+
+      .location-box {
+        /* rounded border box matching the design */
+        border: 3px solid #7a2828;
+        border-radius: 26px;
+        padding: 22px 26px;
+        text-align: center;
+        background: transparent;
+        max-width: 520px;
+        margin: 0 auto;
+      }
+
+      .location-box .location-address {
+        font-style: italic;
+        color: #333;
+        margin-bottom: 14px;
+        font-size: 1.05em;
+      }
+
+      .location-box .location-title {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        color: #d63384;
+        font-size: 1.15em;
+      }
+
+      .cta-direction {
+        display: inline-block;
+        background: #d63384;
+        color: #fff;
+        padding: 10px 28px;
+        border-radius: 26px;
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .cta-direction:hover {
+        background: #b02a5b;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(214, 51, 132, 0.3);
+      }
+
+      @media (max-width: 900px) {
+        .ceremony-details { grid-template-columns: 1fr; }
+        .time-badge-sep-left,
+        .time-badge-sep-right { 
+          height: 140px;
+          margin: 0 10px;
+        }
+        .weekday-left { 
+          margin-right: 10px;
+          min-width: 70px;
+        }
+        .year-right {
+          margin-left: 10px;
+          min-width: 75px;
+        }
+        .time-badge { 
+          margin-bottom: 0;
+          padding: 8px 20px;
+          min-width: 120px;
+        }
+        .ceremony-title-text {
+          font-size: 0.9em;
+        }
       }
 
       .ceremony-item h4 {
@@ -1751,16 +1877,6 @@
         font-size: 1.3em;
         margin-bottom: 15px;
         font-weight: 700;
-      }
-
-      .ceremony-info {
-        color: #5a6c7d;
-        line-height: 1.8;
-        display: flex;
-        flex-wrap: nowrap;
-        align-items: flex-start;
-        gap: 20px;
-        justify-content: space-between;
       }
 
       .ceremony-text-content {
@@ -2139,8 +2255,8 @@
 
       /* Wedding Photo Gallery Section */
       .photo-gallery-section {
-        margin: 80px 0;
-        padding: 50px 40px;
+        margin: 20px 0;
+        padding: 40px 40px;
         background: linear-gradient(
           135deg,
           rgba(255, 255, 255, 0.95),
@@ -2221,7 +2337,7 @@
         width: 100%;
         height: 250px;
         object-fit: cover;
-        transition: all 0.8s ease;
+        transition: all 1.2s ease;
         filter: brightness(1) saturate(1);
         opacity: 1;
         display: block;
@@ -2316,6 +2432,28 @@
       .photo-item:hover {
         transform: translateY(-10px) scale(1.05);
         box-shadow: 0 25px 50px rgba(214, 51, 132, 0.3);
+      }
+
+      /* Side-in entrance for gallery images */
+      .photo-item.from-left,
+      .photo-item.from-right {
+        opacity: 0;
+        transform: translateX(0) translateY(12px);
+        transition: transform 1200ms cubic-bezier(0.22, 1, 0.36, 1), opacity 1200ms ease;
+      }
+
+      .photo-item.from-left {
+        transform: translateX(-40px) translateY(12px);
+      }
+
+      .photo-item.from-right {
+        transform: translateX(40px) translateY(12px);
+      }
+
+      .photo-item.visible.from-left,
+      .photo-item.visible.from-right {
+        opacity: 1;
+        transform: translateX(0) translateY(0);
       }
 
       .photo-item.featured {
@@ -2478,57 +2616,55 @@
         opacity: 1;
       }
 
-      .invitee-name {
-        font-family: "Great Vibes", cursive;
-        font-size: 3.2em;
-        font-weight: 700;
-        color: #ff69b4;
-        margin: 25px 0;
-        position: relative;
-        z-index: 2;
-        text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5),
-          0 0 40px rgba(255, 105, 180, 0.6), 0 0 80px rgba(255, 105, 180, 0.3),
-          0 0 120px rgba(255, 255, 255, 0.2);
-        animation: inviteeGlow 2.5s ease-in-out infinite alternate;
-        letter-spacing: 2px;
-        text-transform: capitalize;
-        background: linear-gradient(45deg, #ff69b4, #ffb6c1, #ff1493);
-        background-size: 200% 200%;
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-        animation: inviteeGlow 2.5s ease-in-out infinite alternate,
-          gradientMove 4s ease-in-out infinite;
-      }
+ .invitee-name {
+  font-family: "Great Vibes", cursive;
+  font-size: 3.2em;
+  font-weight: 700;
+  color: #ea83b6;
+  margin: 25px 0;
+  position: relative;
+  z-index: 2;
+  text-shadow: 2px 2px 6px rgba(180, 150, 150, 0.4),
+    0 0 20px rgba(244, 139, 192, 0.4),
+    0 0 40px rgba(231, 131, 181, 0.2);
+  animation: inviteeGlow 4s ease-in-out infinite alternate;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  background: linear-gradient(45deg, #eb61a6, #ffb6c1, #d972a9);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: inviteeGlow 4s ease-in-out infinite alternate,
+    gradientMove 6s ease-in-out infinite;
+}
 
-      @keyframes inviteeGlow {
-        0% {
-          text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5),
-            0 0 40px rgba(255, 105, 180, 0.6), 0 0 80px rgba(255, 105, 180, 0.3);
-          transform: scale(1);
-          filter: brightness(1);
-        }
-        100% {
-          text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5),
-            0 0 60px rgba(255, 105, 180, 0.8),
-            0 0 100px rgba(255, 105, 180, 0.5),
-            0 0 140px rgba(255, 255, 255, 0.3);
-          transform: scale(1.05);
-          filter: brightness(1.2);
-        }
-      }
+@keyframes inviteeGlow {
+  0% {
+    text-shadow: 2px 2px 6px rgba(180, 150, 150, 0.4),
+      0 0 20px rgba(244, 139, 192, 0.4),
+      0 0 40px rgba(231, 131, 181, 0.2);
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  100% {
+    text-shadow: 2px 2px 8px rgba(180, 150, 150, 0.5),
+      0 0 25px rgba(244, 139, 192, 0.5),
+      0 0 60px rgba(231, 131, 181, 0.3);
+    transform: scale(1.02);
+    filter: brightness(1.05);
+  }
+}
 
-      @keyframes gradientMove {
-        0% {
-          background-position: 0% 50%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
-        100% {
-          background-position: 0% 50%;
-        }
-      }
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
 
       .footer.fullscreen .invitee-name {
         font-size: 4.2em;
@@ -3549,73 +3685,9 @@
         </div>
 
         <!-- Wedding Ceremonies -->
-        <div class="ceremony-section scroll-animate animate-from-right">
-          <h2 class="ceremony-title">🌸 Lễ Vu Quy</h2>
-          <div class="ceremony-details">
-            <div class="ceremony-item">
-              <h4>💒 Lễ Vu Quy</h4>
-              <div class="ceremony-info">
-                <div class="ceremony-text-content">
-                  <div class="time-info">⏰ 07:00 - Thứ bảy, 28/12/2025</div>
-                  <div style="margin: 8px 0; color: #6c757d">
-                    📅 Ngày 10 tháng 11 năm Ất Tỵ
-                  </div>
-                  <div class="location-info">
-                    📍 25 Huyền Trân Công Chúa, P4, Đà Lạt, Lâm Đồng
-                    <a
-                      class="ceremony-map-link"
-                      href="https://maps.app.goo.gl/p4dQTXYQYy4Eq3eQ9"
-                      target="_blank"
-                      >Bản đồ</a
-                    >
-                  </div>
-                </div>
-                <div class="map-container">
-                  <iframe
-                    allowfullscreen=""
-                    class="embedded-map"
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3902.8507!2d108.4418!3d11.9430!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317112fdb03e35bf%3A0x8e4e9fd8e7cdb5ad!2s25%20Huy%E1%BB%81n%20Tr%C3%A2n%20C%C3%B4ng%20Ch%C3%BAa%2C%20Ph%C6%B0%E1%BB%9Dng%204%2C%20Th%C3%A0nh%20ph%E1%BB%91%20%C4%90%C3%A0%20L%E1%BA%A1t%2C%20L%C3%A2m%20%C4%90%E1%BB%93ng%2C%20Vietnam!5e0!3m2!1sen!2s!4v1640995200000!5m2!1sen!2s"
-                  >
-                  </iframe>
-                </div>
-              </div>
-            </div>
+        <div id="ceremoniesContainer"></div>
 
-            <div class="ceremony-item">
-              <h4>🎉 Tiệc Cưới</h4>
-              <div class="ceremony-info">
-                <div class="ceremony-text-content">
-                  <div class="time-info">⏰ 16:30 - Thứ sáu, 27/12/2025</div>
-                  <div style="margin: 8px 0; color: #6c757d">
-                    📅 Ngày 9 tháng 11 năm Ất Tỵ
-                  </div>
-                  <div class="location-info">
-                    📍 Ana Mandara Villas Dalat Resort
-                    <a
-                      class="ceremony-map-link"
-                      href="https://maps.app.goo.gl/R4nCXxEaBJThVNQi6"
-                      target="_blank"
-                      >Bản đồ</a
-                    >
-                  </div>
-                </div>
-                <div class="map-container">
-                  <iframe
-                    allowfullscreen=""
-                    class="embedded-map"
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"
-                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3903.439485779722!2d108.4210251!3d11.9440442!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31716cd40cc0684b%3A0x6b9892057c05b737!2sAna%20Mandara%20Villas%20Dalat%20Resort%20%26%20Spa!5e0!3m2!1svi!2ssg!4v1760083379071!5m2!1svi!2ssg"
-                  ></iframe>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="ceremony-section scroll-animate animate-from-left">
+        <!-- <div class="ceremony-section scroll-animate animate-from-left">
           <h2 class="ceremony-title">🎊 Lễ Tân Hôn</h2>
           <div class="ceremony-details">
             <div class="ceremony-item">
@@ -3678,7 +3750,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
 
       <div class="footer">
@@ -4280,90 +4352,120 @@
           setTimeout(() => invitationContainer.classList.add("animated"), 0);
         }
 
-        // Enhanced photo gallery with proper loading
+        // Enhanced photo gallery with proper loading and entrance animations
         function setupPhotoGallery() {
           const galleryImages = document.querySelectorAll(".photo-item img");
           const photoItems = document.querySelectorAll(".photo-item");
 
-          // Ensure images are visible and add loading effects
+          // Make images visible and attach load/error handlers
           galleryImages.forEach((img, index) => {
-            // Remove any opacity restrictions
-            img.style.opacity = "1";
-            img.style.display = "block";
+            try {
+              img.style.opacity = "1";
+              img.style.display = "block";
+            } catch (e) {}
 
-            // Add loading animation
             img.addEventListener("load", function () {
-              this.style.opacity = "1";
-              this.parentElement.style.opacity = "1";
+              try {
+                this.style.opacity = "1";
+                if (this.parentElement) this.parentElement.style.opacity = "1";
+              } catch (e) {}
               console.log(`Image ${index + 1} loaded successfully:`, this.src);
             });
 
             img.addEventListener("error", function () {
-              console.error("Failed to load image:", this.src);
-              // Try to show a placeholder or the image anyway
-              this.style.opacity = "0.7";
-              this.style.backgroundColor = "#f0f0f0";
-              this.parentElement.style.cursor = "default";
+              console.warn("Gallery image failed to load:", this.src);
+              try {
+                this.style.opacity = "0.6";
+                this.style.backgroundColor = "#f0f0f0";
+                if (this.parentElement) this.parentElement.style.cursor = "default";
+              } catch (e) {}
             });
 
-            // Force reload if image doesn't seem to be loading
-            if (!img.complete || img.naturalHeight === 0) {
-              const src = img.src;
-              img.src = "";
-              img.src = src;
-            }
+            // If image appears not loaded, nudge a reload
+            try {
+              if (!img.complete || img.naturalHeight === 0) {
+                const src = img.src;
+                img.src = "";
+                img.src = src;
+              }
+            } catch (e) {}
           });
 
-          // Add click functionality to photo items
-          photoItems.forEach((item, index) => {
+          // If there are no photo items, show a placeholder and exit gracefully
+          if (!photoItems || photoItems.length === 0) {
+            const galleryContainer = document.querySelector(".photo-gallery-section");
+            if (galleryContainer) {
+              const ph = document.createElement("div");
+              ph.className = "photo-placeholder";
+              ph.style.padding = "40px";
+              ph.style.textAlign = "center";
+              ph.style.color = "#6c757d";
+              ph.textContent = "Ảnh đang được cập nhật. Vui lòng kiểm tra lại sau.";
+              galleryContainer.appendChild(ph);
+            }
+            console.log("No photo items found for gallery");
+            return;
+          }
+
+          // Assign alternating entrance classes
+          photoItems.forEach((item, idx) => {
+            if (idx % 2 === 0) item.classList.add("from-left");
+            else item.classList.add("from-right");
+          });
+
+          // IntersectionObserver to reveal items with a small stagger
+          const obs = new IntersectionObserver((entries, observer) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const el = entry.target;
+                const idx = Array.prototype.indexOf.call(photoItems, el);
+                // slower stagger: 220ms steps makes the entrance feel more graceful
+                setTimeout(() => el.classList.add("visible"), (idx % 6) * 220);
+                observer.unobserve(el);
+              }
+            });
+          }, { threshold: 0.18 });
+
+          photoItems.forEach((it) => obs.observe(it));
+
+          // Interactions: click/hover/keyboard
+          photoItems.forEach((item) => {
             item.style.cursor = "pointer";
 
             item.addEventListener("click", function () {
-              // Create a simple zoom effect
               const img = this.querySelector("img");
               if (img) {
-                // Add a brief scale animation
                 this.style.transform = "scale(1.1)";
                 setTimeout(() => {
                   this.style.transform = "translateY(-10px) scale(1.05)";
                 }, 200);
 
-                // Add sparkle effect
                 for (let i = 0; i < 5; i++) {
                   setTimeout(() => {
                     createSparkle(
-                      this.getBoundingClientRect().left +
-                        Math.random() * this.offsetWidth,
-                      this.getBoundingClientRect().top +
-                        Math.random() * this.offsetHeight
+                      this.getBoundingClientRect().left + Math.random() * this.offsetWidth,
+                      this.getBoundingClientRect().top + Math.random() * this.offsetHeight
                     );
                   }, i * 100);
                 }
 
-                // Add vibration for mobile only after a user gesture was detected
                 if (window.userGestureDetected && "vibrate" in navigator) {
-                  try {
-                    navigator.vibrate(100);
-                  } catch (e) {}
+                  try { navigator.vibrate(100); } catch (e) {}
                 }
               }
             });
 
-            // Add hover sparkle effect
             item.addEventListener("mouseenter", function () {
               for (let i = 0; i < 3; i++) {
                 setTimeout(() => {
                   createSparkle(
-                    this.getBoundingClientRect().left +
-                      Math.random() * this.offsetWidth,
-                    this.getBoundingClientRect().top +
-                      Math.random() * this.offsetHeight
+                    this.getBoundingClientRect().left + Math.random() * this.offsetWidth,
+                    this.getBoundingClientRect().top + Math.random() * this.offsetHeight
                   );
                 }, i * 200);
               }
             });
 
-            // Add keyboard support
             item.setAttribute("tabindex", "0");
             item.addEventListener("keydown", function (e) {
               if (e.key === "Enter" || e.key === " ") {
@@ -4374,27 +4476,112 @@
           });
 
           console.log(`Initialized gallery with ${photoItems.length} photos`);
-
-          // If no photos found, show a friendly placeholder in the gallery area
-          if (photoItems.length === 0) {
-            const galleryContainer = document.querySelector(
-              ".photo-gallery-section"
-            );
-            if (galleryContainer) {
-              const ph = document.createElement("div");
-              ph.className = "photo-placeholder";
-              ph.style.padding = "40px";
-              ph.style.textAlign = "center";
-              ph.style.color = "#6c757d";
-              ph.textContent =
-                "Ảnh đang được cập nhật. Vui lòng kiểm tra lại sau.";
-              galleryContainer.appendChild(ph);
-            }
-          }
         }
 
         // Initialize photo gallery
         setupPhotoGallery();
+
+        // Render ceremony sections based on target_date parameter
+        function renderCeremonySections() {
+          const targetDate = getUrlParameter("target_date");
+          const ceremoniesContainer = document.getElementById("ceremoniesContainer");
+          
+          if (!ceremoniesContainer) return;
+
+          let ceremoniesHTML = '';
+
+          if (targetDate === "28") {
+            // Hiển thị Tiệc Cưới và Lễ Vu Quy cho ngày 28
+            ceremoniesHTML = `
+              <div class="ceremony-section scroll-animate animate-from-right">
+                <h2 class="ceremony-title">🎊 TIỆC CƯỚI</h2>
+                <div class="ceremony-item">
+                  <div class="ceremony-info">
+                    <div class="weekday-left">Chủ Nhật</div>
+                    <div class="time-badge">
+                      <div class="time">16 giờ 30′</div>
+                      <div class="day-number">28</div>
+                      <div class="month">Tháng 12</div>
+                    </div>
+                    <div class="year-right">Năm 2025</div>
+                  </div>
+                  <div class="lunar-note">( Tức ngày 10 tháng 11 năm Ất Tỵ )</div>
+
+                  <div class="location-box">
+                    <div class="location-title">TẠI: ANA MANDARA VILLAS DALAT RESORT</div>
+                    <div class="location-address">Lê Lai, Phường 5, Đà Lạt, Lâm Đồng</div>
+                    <a class="cta-direction" href="https://maps.app.goo.gl/R4nCXxEaBJThVNQi6" target="_blank">XEM CHỈ ĐƯỜNG</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ceremony-section scroll-animate animate-from-left">
+                <h2 class="ceremony-title">🌸 LỄ VU QUY</h2>
+                <div class="ceremony-item">
+                  <div class="ceremony-info">
+                    <div class="weekday-left">Chủ Nhật</div>
+                    <div class="time-badge">
+                      <div class="time">08 giờ 00′</div>
+                      <div class="day-number">28</div>
+                      <div class="month">Tháng 12</div>
+                    </div>
+                    <div class="year-right">Năm 2025</div>
+                  </div>
+                  <div class="lunar-note">( Tức ngày 10 tháng 11 năm Ất Tỵ )</div>
+
+                  <div class="location-box">
+                    <div class="location-title">TẠI: TƯ GIA NHÀ GÁI</div>
+                    <div class="location-address">25 Huyền Trân Công Chúa, Phường 4, Đà Lạt, Lâm Đồng</div>
+                    <a class="cta-direction" href="https://maps.app.goo.gl/p4dQTXYQYy4Eq3eQ9" target="_blank">XEM CHỈ ĐƯỜNG</a>
+                  </div>
+                </div>
+              </div>
+            `;
+          } else {
+            // Hiển thị mặc định (target_date = 29 hoặc không có param)
+            ceremoniesHTML = `
+              <div class="ceremony-section scroll-animate animate-from-right">
+                <div class="ceremony-item">
+                  <div class="ceremony-title-text">TỚI DỰ BỮA CƠM THÂN MẬT CÙNG GIA ĐÌNH VÀO LÚC:</div>
+                  <div class="ceremony-info">
+                    <div class="weekday-left">Thứ Bảy</div>
+                    <div class="time-badge">
+                      <div class="time">17 giờ 00′</div>
+                      <div class="day-number">28</div>
+                      <div class="month">Tháng 12</div>
+                    </div>
+                    <div class="year-right">Năm 2025</div>
+                  </div>
+                  <div class="lunar-note">( Tức ngày 10 tháng 11 năm Ất Tỵ )</div>
+
+                  <div class="location-box">
+                    <div class="location-title">TẠI: TƯ GIA NHÀ TRAI</div>
+                    <div class="location-address">Bến xe Điền Linh, Tân Hà Lâm Hà, Lâm Đồng</div>
+                    <a class="cta-direction" href="https://maps.app.goo.gl/AAVkR1VWQNPDf8LA9" target="_blank">XEM CHỈ ĐƯỜNG</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ceremony-section scroll-animate animate-from-left">
+                <h2 class="ceremony-title">👰LỄ THÀNH HÔN🤵</h2>
+                <div class="ceremony-item">
+                  <div class="ceremony-info">
+                    <div class="weekday-left">Chủ Nhật</div>
+                    <div class="time-badge">
+                      <div class="time">11 giờ 00′</div>
+                      <div class="day-number">29</div>
+                      <div class="month">Tháng 12</div>
+                    </div>
+                    <div class="year-right">Năm 2025</div>
+                  </div>
+                  <div class="lunar-note">( Tức ngày 11 tháng 11 năm Ất Tỵ )</div>
+                </div>
+              </div>
+            `;
+          }
+
+          ceremoniesContainer.innerHTML = ceremoniesHTML;
+        }
 
         // Handle invitee parameter
         function getUrlParameter(name) {
@@ -4405,6 +4592,9 @@
             ? ""
             : decodeURIComponent(results[1].replace(/\+/g, " "));
         }
+
+        // Render ceremony sections first
+        renderCeremonySections();
 
         const inviteeName = getUrlParameter("invitee");
         if (inviteeName) {
