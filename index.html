@@ -5,7 +5,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Thiệp Cưới - Đông & Uyên</title>
     <meta
-      content="Thiệp cưới điện tử của Hoàng Uyên và Viết Đông - 28/12/2025"
+      content="Thiệp cưới điện tử của Hoàng Uyên và Viết Đông - 28-29/12/2025"
       name="description"
     />
     <meta
@@ -1826,6 +1826,7 @@
         font-weight: 700;
         color: #d63384;
         font-size: 1.15em;
+        margin-bottom: 18px;
       }
 
       .cta-direction {
@@ -3393,7 +3394,7 @@
       <div class="hero-section">
         <div class="hero-background"></div>
         <div class="date-badge">
-          <span class="date-large">28</span>
+          <span class="date-large" id="dateBadgeDay">29</span>
           <span class="month-year">12.2025</span>
         </div>
 
@@ -3531,8 +3532,12 @@
                   <div class="calendar-day current-month">26</div>
                   <div class="calendar-day current-month">27</div>
 
-                  <div class="calendar-day current-month wedding-day">28</div>
-                  <div class="calendar-day current-month">29</div>
+                  <div class="calendar-day current-month" id="calendarDay28">
+                    28
+                  </div>
+                  <div class="calendar-day current-month" id="calendarDay29">
+                    29
+                  </div>
                   <div class="calendar-day current-month">30</div>
                   <div class="calendar-day current-month">31</div>
                   <!-- January days -->
@@ -3563,8 +3568,8 @@
         <h2 class="section-title scroll-animate animate-from-bottom">
           Gia đình chúng tôi
         </h2>
-        <div class="family-info">
-          <div class="family-side scroll-animate animate-from-left stagger-1">
+        <div class="family-info" id="familyInfoContainer">
+          <div class="family-side scroll-animate animate-from-left stagger-1" id="familyGroom">
             <h3 class="family-title">♂ Nhà Trai</h3>
             <div class="person-info">
               <img
@@ -3594,7 +3599,7 @@
             </div>
           </div>
 
-          <div class="family-side scroll-animate animate-from-right stagger-2">
+          <div class="family-side scroll-animate animate-from-right stagger-2" id="familyBride">
             <h3 class="family-title">♀ Nhà Gái</h3>
             <div class="person-info">
               <img
@@ -4561,7 +4566,7 @@
                 <div class="ceremony-item">
                   <div class="ceremony-title-text">TỚI DỰ BỮA CƠM THÂN MẬT CÙNG GIA ĐÌNH VÀO LÚC:</div>
                   <div class="ceremony-info">
-                    <div class="weekday-left">Thứ Bảy</div>
+                    <div class="weekday-left">Chủ Nhật</div>
                     <div class="time-badge">
                       <div class="time">17 giờ 00′</div>
                       <div class="day-number">28</div>
@@ -4583,7 +4588,7 @@
                 <h2 class="ceremony-title">👰LỄ THÀNH HÔN🤵</h2>
                 <div class="ceremony-item">
                   <div class="ceremony-info">
-                    <div class="weekday-left">Chủ Nhật</div>
+                    <div class="weekday-left">Thứ Hai</div>
                     <div class="time-badge">
                       <div class="time">11 giờ 00′</div>
                       <div class="day-number">29</div>
@@ -4600,6 +4605,39 @@
           ceremoniesContainer.innerHTML = ceremoniesHTML;
         }
 
+        // Update date badge and calendar based on target_date
+        function updateDateDisplay() {
+          const targetDate = getUrlParameter("target_date");
+          const dateBadgeDay = document.getElementById("dateBadgeDay");
+          const calendarDay28 = document.getElementById("calendarDay28");
+          const calendarDay29 = document.getElementById("calendarDay29");
+          const familyInfoContainer = document.getElementById("familyInfoContainer");
+          const familyGroom = document.getElementById("familyGroom");
+          const familyBride = document.getElementById("familyBride");
+
+          if (targetDate === "28") {
+            // Hiển thị ngày 28 cho nhà gái (khi có ?target_date=28)
+            if (dateBadgeDay) dateBadgeDay.textContent = "28";
+            if (calendarDay28) calendarDay28.classList.add("wedding-day");
+            if (calendarDay29) calendarDay29.classList.remove("wedding-day");
+            
+            // Đưa nhà gái lên trước
+            if (familyInfoContainer && familyBride && familyGroom) {
+              familyInfoContainer.insertBefore(familyBride, familyGroom);
+            }
+          } else {
+            // Hiển thị ngày 29 cho nhà trai (mặc định)
+            if (dateBadgeDay) dateBadgeDay.textContent = "29";
+            if (calendarDay28) calendarDay28.classList.remove("wedding-day");
+            if (calendarDay29) calendarDay29.classList.add("wedding-day");
+            
+            // Giữ nhà trai ở trước (thứ tự mặc định trong HTML)
+            if (familyInfoContainer && familyGroom && familyBride) {
+              familyInfoContainer.insertBefore(familyGroom, familyBride);
+            }
+          }
+        }
+
         // Handle invitee parameter
         function getUrlParameter(name) {
           name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
@@ -4613,6 +4651,9 @@
         // Render ceremony sections first
         renderCeremonySections();
 
+        // Update date badge and calendar
+        updateDateDisplay();
+
         const inviteeName = getUrlParameter("invitee");
         if (inviteeName) {
           const inviteeElement = document.getElementById("inviteeName");
@@ -4621,7 +4662,10 @@
         }
         // Countdown Timer
         function updateCountdown() {
-          const weddingDate = new Date("2025-12-28T10:00:00");
+          const targetDate = getUrlParameter("target_date");
+          const weddingDateStr =
+            targetDate === "28" ? "2025-12-28T10:00:00" : "2025-12-29T10:00:00";
+          const weddingDate = new Date(weddingDateStr);
           const now = new Date();
           const timeDiff = weddingDate - now;
 
