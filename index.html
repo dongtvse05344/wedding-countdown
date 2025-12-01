@@ -20,6 +20,8 @@
     <meta content="website" property="og:type" />
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&family=Great+Vibes&family=Comforter+Brush&display=swap");
 
@@ -1222,7 +1224,7 @@
       }
 
       .couple-names {
-        font-family: "Comforter Brush", "Playfair Display", serif;
+        font-family: "Playfair Display", serif;
         font-size: 3em;
         color: #d63384;
         margin: 30px 0;
@@ -2620,6 +2622,63 @@
         opacity: 1;
       }
 
+      .social-links {
+        margin-top: 30px;
+        text-align: center;
+      }
+
+      .tiktok-link {
+        display: inline-block;
+        background: linear-gradient(135deg, #ff0050, #ff4081, #e91e63);
+        color: white;
+        padding: 12px 24px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-family: "Inter", sans-serif;
+        font-weight: 600;
+        font-size: 1.1em;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 4px 15px rgba(255, 0, 80, 0.3);
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      .tiktok-link::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s ease;
+        z-index: -1;
+      }
+
+      .tiktok-link:hover {
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 8px 25px rgba(255, 0, 80, 0.4);
+        background: linear-gradient(135deg, #e91e63, #ff4081, #ff0050);
+      }
+
+      .tiktok-link:hover::before {
+        left: 100%;
+      }
+
+      .tiktok-link:active {
+        transform: translateY(-1px) scale(1.02);
+      }
+
+      .tiktok-icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 8px;
+        vertical-align: middle;
+        filter: brightness(1.2);
+      }
+
+
       .invitee-name {
         font-family: "Great Vibes", cursive;
         font-size: 3.2em;
@@ -3688,6 +3747,14 @@
           </div>
         </div>
 
+        <!-- TikTok Link Section -->
+        <div class="social-links">
+          <a class="tiktok-link" href="https://www.tiktok.com/@uynchuanbicochong" rel="noopener noreferrer" target="_blank">
+            <img alt="TikTok" class="tiktok-icon" src="img/tiktok_icon.png">
+            gửi lời chúc và xem thêm tại
+          </a>
+        </div>
+
         <!-- Wedding Ceremonies -->
         <div id="ceremoniesContainer"></div>
 
@@ -4527,7 +4594,7 @@
                     </div>
                     <div class="year-right">Năm 2025</div>
                   </div>
-                  <div class="lunar-note">( Tức ngày 10 tháng 11 năm Ất Tỵ )</div>
+                  <div class="lunar-note">( Tức mồng 9 tháng 11 năm Ất Tỵ )</div>
 
                   <div class="location-box">
                     <div class="location-title">TẠI: ANA MANDARA VILLAS DALAT RESORT</div>
@@ -4541,15 +4608,15 @@
                 <h2 class="ceremony-title">🌸 LỄ VU QUY</h2>
                 <div class="ceremony-item">
                   <div class="ceremony-info">
-                    <div class="weekday-left">Chủ Nhật</div>
+                    <div class="weekday-left">THỨ 2</div>
                     <div class="time-badge">
-                      <div class="time">08 giờ 00′</div>
-                      <div class="day-number">28</div>
+                      <div class="time">07 giờ 00′</div>
+                      <div class="day-number">29</div>
                       <div class="month">Tháng 12</div>
                     </div>
                     <div class="year-right">Năm 2025</div>
                   </div>
-                  <div class="lunar-note">( Tức ngày 10 tháng 11 năm Ất Tỵ )</div>
+                  <div class="lunar-note">( Tức mồng 10 tháng 11 năm Ất Tỵ )</div>
 
                   <div class="location-box">
                     <div class="location-title">TẠI: TƯ GIA NHÀ GÁI</div>
@@ -4568,13 +4635,13 @@
                   <div class="ceremony-info">
                     <div class="weekday-left">Chủ Nhật</div>
                     <div class="time-badge">
-                      <div class="time">17 giờ 00′</div>
+                      <div class="time">17 giờ 30′</div>
                       <div class="day-number">28</div>
                       <div class="month">Tháng 12</div>
                     </div>
                     <div class="year-right">Năm 2025</div>
                   </div>
-                  <div class="lunar-note">( Tức ngày 10 tháng 11 năm Ất Tỵ )</div>
+                  <div class="lunar-note">( Tức mồng 9 tháng 11 năm Ất Tỵ )</div>
 
                   <div class="location-box">
                     <div class="location-title">TẠI: TƯ GIA NHÀ TRAI</div>
@@ -4596,7 +4663,7 @@
                     </div>
                     <div class="year-right">Năm 2025</div>
                   </div>
-                  <div class="lunar-note">( Tức ngày 11 tháng 11 năm Ất Tỵ )</div>
+                  <div class="lunar-note">( Tức ngày 10 tháng 11 năm Ất Tỵ )</div>
                 </div>
               </div>
             `;
